@@ -29,15 +29,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Announcements"
+            android:fontFamily="@font/muli_black"
             android:textColor="@color/Light_black"
-            android:textSize="17sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/featured_description"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/asap_medium"
             android:layout_height="wrap_content"
             android:text="Notification and Announcements of the church is displayed here"
-            android:textSize="14sp"/>
+            android:textSize="15sp"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

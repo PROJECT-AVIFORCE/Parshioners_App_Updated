@@ -172,6 +172,7 @@
                             android:layout_margin="10dp"
                             android:layout_marginTop="50dp"
                             android:text="Features"
+                            android:fontFamily="@font/muli_black"
                             android:textAllCaps="true"
                             android:textColor="@color/Light_black"
                             android:textSize="25dp" />
@@ -180,6 +181,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
+                            android:fontFamily="@font/amiko_semibold"
                             android:layout_marginTop="10dp"
                             android:text="All the best features we can offer for a hassle free experience for the parish members" />
 
@@ -210,7 +212,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/muli_black"
-                            android:text="Most Viewed"
+                            android:text="Organisations"
                             android:textAllCaps="true"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -228,7 +230,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/most_viewed_recycler"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp" />
+                        android:layout_height="wrap_content" />
 
 
                 </LinearLayout>

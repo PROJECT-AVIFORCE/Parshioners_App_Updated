@@ -142,10 +142,9 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         mostViewedRecycler.setHasFixedSize(true);
         mostViewedRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         ArrayList<MostViewedHelperClass> mostViewedFeatures = new ArrayList<>();
-        mostViewedFeatures.add(new MostViewedHelperClass(R.drawable.loudspeaker_, "Announcements"));
-        mostViewedFeatures.add(new MostViewedHelperClass(R.drawable.operation, "Events"));
-        mostViewedFeatures.add(new MostViewedHelperClass(R.drawable.resume, "Profile"));
-        mostViewedFeatures.add(new MostViewedHelperClass(R.drawable.operation, "Dues"));
+        mostViewedFeatures.add(new MostViewedHelperClass(R.drawable.youth, "Yuvajana Sakhyam"));
+        mostViewedFeatures.add(new MostViewedHelperClass(R.drawable.women, "Sevika Sangham"));
+        mostViewedFeatures.add(new MostViewedHelperClass(R.drawable.sunday_school, "Sunday School"));
         adapter = new MostViewedAdapter(mostViewedFeatures);
         mostViewedRecycler.setAdapter(adapter);
     }
