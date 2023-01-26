@@ -15,6 +15,27 @@
         android:theme="@style/Theme.Parishoners"
         tools:targetApi="31">
         <activity
+            android:name=".SundaySchool"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".sevikasangam"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".youth"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".updateannouncement"
             android:exported="false">
             <meta-data
