@@ -48,6 +48,13 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
         holder.image.setImageResource(features.get(position).getImage());
         holder.title.setText(features.get(position).getTitle());
         holder.desc.setText(features.get(position).getDescription());
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onitemclick(featuredHelperClass);
+
+            }
+        });
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -25,7 +25,7 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,SelectListener  {
+public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,SelectListener,mostviewedlistener {
 
     static final float END_SCALE = 0.7f;
 
@@ -34,6 +34,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     ImageView menuIcon;
     LinearLayout contentView;
     List<FeaturedHelperClass> features;
+    List<MostViewedHelperClass> mostViewedFeatures;
 
     //Drawer Menu
     DrawerLayout drawerLayout;
@@ -141,11 +142,11 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     private void mostViewedRecycler() {
         mostViewedRecycler.setHasFixedSize(true);
         mostViewedRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        ArrayList<MostViewedHelperClass> mostViewedFeatures = new ArrayList<>();
+        mostViewedFeatures = new ArrayList<>();
         mostViewedFeatures.add(new MostViewedHelperClass(R.drawable.youth, "Yuvajana Sakhyam"));
         mostViewedFeatures.add(new MostViewedHelperClass(R.drawable.women, "Sevika Sangham"));
         mostViewedFeatures.add(new MostViewedHelperClass(R.drawable.sunday_school, "Sunday School"));
-        adapter = new MostViewedAdapter(mostViewedFeatures);
+        adapter = new MostViewedAdapter(getApplicationContext(), mostViewedFeatures, this);
         mostViewedRecycler.setAdapter(adapter);
     }
 
@@ -168,37 +169,48 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     @Override
     public void onitemclick(FeaturedHelperClass featuredHelperClass) {
-        String text=featuredHelperClass.getDescription();
+        String text = featuredHelperClass.getDescription();
 
-        if(text=="Notification and Announcements of the church is displayed here") {
+        if (text == "Notification and Announcements of the church is displayed here") {
             Intent intent = new Intent(this, postannouncement.class);
             startActivity(intent);
-        }
-        else
-            {
-                    if(text=="Upcoming Events of the church is displayed here")
-                    {
-                        Intent inten = new Intent(this, event.class);
-                        startActivity(inten);
-                    }
-                    if(text=="Pending Subscription and Dues of the members is displayed here")
-                    {
-                        Intent in = new Intent(this,dues.class);
-                        startActivity(in);
-                    }
-                     if(text=="Individual Profile of the members is displayed here")
-                    {
-                        Intent in = new Intent(this, profile.class);
-                        startActivity(in);
-                    }
-
-
+        } else {
+            if (text == "Upcoming Events of the church is displayed here") {
+                Intent inten = new Intent(this, event.class);
+                startActivity(inten);
+            }
+            if (text == "Pending Subscription and Dues of the members is displayed here") {
+                Intent in = new Intent(this, dues.class);
+                startActivity(in);
+            }
+            if (text == "Individual Profile of the members is displayed here") {
+                Intent in = new Intent(this, profile.class);
+                startActivity(in);
             }
 
 
-
-
         }
 
 
+    }
+
+
+    @Override
+    public void onitemclick(MostViewedHelperClass mostViewedHelperClass) {
+        String title = mostViewedHelperClass.getTitle();
+        if (title=="Yuvajana Sakhyam") {
+            Intent ay = new Intent(this, youth.class);
+            startActivity(ay);
+        } else {
+            if (title=="Sevika Sangham") {
+                Intent ac = new Intent(this, sevikasangam.class);
+                startActivity(ac);
+                if (title=="Sunday School") {
+                    Intent a = new Intent(this, SundaySchool.class);
+                    startActivity(a);
+                }
+            }
+        }
+
+    }
 }

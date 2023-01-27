@@ -1,5 +1,6 @@
 package com.example.parishoners;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,15 +8,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MostViewedAdapter extends RecyclerView.Adapter<MostViewedAdapter.MostViewedViewHolder> {
-    ArrayList<MostViewedHelperClass> mostViewedFeatures;
+    List<MostViewedHelperClass> mostViewedFeatures;
+     Context context;
+     mostviewedlistener listener;
 
-    public MostViewedAdapter(ArrayList<MostViewedHelperClass> mostViewedFeatures) {
+    public MostViewedAdapter(Context context,List<MostViewedHelperClass> mostViewedFeatures,mostviewedlistener listener) {
         this.mostViewedFeatures = mostViewedFeatures;
+        this.context=context;
+        this.listener=listener;
     }
 
     @NonNull
@@ -31,6 +38,19 @@ public class MostViewedAdapter extends RecyclerView.Adapter<MostViewedAdapter.Mo
         MostViewedHelperClass helperClass = mostViewedFeatures.get(position);
         holder.imageView.setImageResource(helperClass.getImage());
         holder.textView.setText(helperClass.getTitle());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onitemclick(helperClass);
+
+            }
+        });
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onitemclick(helperClass);
+            }
+        });
 
     }
 
@@ -42,11 +62,14 @@ public class MostViewedAdapter extends RecyclerView.Adapter<MostViewedAdapter.Mo
     public static class MostViewedViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView textView;
+        CardView cardView;
 
         public MostViewedViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.mv_image);
             textView = itemView.findViewById(R.id.mv_title);
+            cardView=itemView.findViewById(R.id.featured_cardview);
+
         }
     }
 }
