@@ -75,7 +75,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Full house"
+                tools:text="Choir Practise"
                 android:singleLine="true"
                 android:textSize="20sp"
                 android:layout_weight="1"
@@ -93,7 +93,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Full House is the Grand prize in any Tambola game played. It means all 15 Numbers of a ticket are cut, striked out"
+                tools:text="Choir practise for next Sunday worship"
                 android:singleLine="true"
                 android:alpha="0.5"
                 android:id="@+id/description"

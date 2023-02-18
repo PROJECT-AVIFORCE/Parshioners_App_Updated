@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:text="Add a task"
+            android:text="Add an Event"
             android:textColor="@android:color/black"
             android:textSize="22sp"
             tools:ignore="MissingPrefix" />
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:text="Fill the details below to add a task into your TODO"
+            android:text="Fill the details below to add an Event"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:alpha="0.8"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Task title"
+            android:text="Event title"
             tools:ignore="MissingPrefix" />
 
         <EditText
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Task description"
+            android:text="Event description"
             tools:ignore="MissingPrefix" />
 
         <EditText
@@ -86,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Task date"
+            android:text="Event date"
             tools:ignore="MissingPrefix" />
 
         <EditText
@@ -105,7 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Task time"
+            android:text="Event time"
             tools:ignore="MissingPrefix" />
 
         <EditText
@@ -119,30 +119,11 @@
             android:id="@+id/taskTime"
             tools:ignore="MissingPrefix" />
 
-        <TextView
-            android:layout_marginLeft="3dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Add an event"
-            tools:ignore="MissingPrefix" />
-
-        <EditText
-            android:textSize="14sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:singleLine="true"
-            android:background="@drawable/btn_border"
-            android:padding="10dp"
-            android:id="@+id/taskEvent"
-            tools:ignore="MissingPrefix" />
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/addTask"
-            android:text="Add task"
+            android:text="Add Event"
             android:background="@drawable/btn_background"
             android:layout_marginTop="40dp" />
 
