@@ -49,6 +49,8 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dashboard);
 
+
+
         ImageSlider imageSlider = findViewById(R.id.imageslider);
         ArrayList<SlideModel> slideModels = new ArrayList<>();
 
@@ -171,7 +173,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         featuredRecycler.setAdapter(adapter);
 
     }
-
+    
 
     @Override
     public void onitemclick(FeaturedHelperClass featuredHelperClass) {
