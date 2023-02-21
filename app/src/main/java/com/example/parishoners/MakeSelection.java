@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MakeSelection extends AppCompatActivity {
 
@@ -14,23 +15,7 @@ public class MakeSelection extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_selection);
 
-        Button otp=findViewById(R.id.otp_btn);
-        Button eotp=findViewById(R.id.email_otp);
+        Toast.makeText(MakeSelection.this, "Check your email", Toast.LENGTH_SHORT).show();
 
-        otp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i=new Intent(MakeSelection.this, OTP.class);
-                startActivity(i);
-            }
-        });
-
-        eotp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i=new Intent(MakeSelection.this,ForgetPassword.class);
-                startActivity(i);
-            }
-        });
     }
 }

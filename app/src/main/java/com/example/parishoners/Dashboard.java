@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,7 @@ import java.util.List;
 public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,SelectListener,mostviewedlistener {
 
     static final float END_SCALE = 0.7f;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     RecyclerView featuredRecycler, mostViewedRecycler;
     RecyclerView.Adapter adapter;
@@ -77,6 +80,8 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         //Functions will be executed automatically when this activity will be created
         featuredRecycler();
         mostViewedRecycler();
+
+
 
 
     }
@@ -167,6 +172,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     }
 
+
     @Override
     public void onitemclick(FeaturedHelperClass featuredHelperClass) {
         String text = featuredHelperClass.getDescription();
@@ -214,3 +220,5 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     }
 }
+
+

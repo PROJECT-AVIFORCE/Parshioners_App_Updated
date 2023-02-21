@@ -1,5 +1,6 @@
 package com.example.parishoners;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
@@ -8,10 +9,20 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUp extends AppCompatActivity {
+
+    private FirebaseAuth auth;
+    private EditText email,pass;
 
     ImageView backBtn,logo;
     Button next,login;
@@ -23,17 +34,48 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         //Hooks
+        auth = FirebaseAuth.getInstance();
         backBtn = findViewById(R.id.signup_back_button);
         next = findViewById(R.id.signup_next_btn);
         logo = findViewById(R.id.logo);
         login = findViewById(R.id.login);
         titletxt = findViewById(R.id.title_text);
         slogan = findViewById(R.id.slogan);
+        email= findViewById(R.id.Email);
+        pass= findViewById(R.id.password);
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String user = email.getText().toString().trim();
+                String password = pass.getText().toString();
+
+                if(user.isEmpty()){
+                    email.setError("email cannot be empty");
+                }
+                if (password.isEmpty()){
+                    pass.setError("wrong password");
+                } else{
+                    auth.createUserWithEmailAndPassword(user,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(SignUp.this,"signup Successful",Toast.LENGTH_SHORT).show();
+                                startActivity( new Intent(SignUp.this,SignUp2ndClass.class));
+                            } else {
+                                Toast.makeText(SignUp.this, "Signup failed" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
     }
 
-   public void callbacktologinscreen(View view) {
-       Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-   }
+    public void callbacktologinscreen(View view) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+    }
 
     public void callNextSignupScreen(View view){
         Intent intent = new Intent(getApplicationContext(), SignUp2ndClass.class);
@@ -53,11 +95,11 @@ public class SignUp extends AppCompatActivity {
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this,pairs);
         startActivity(intent,options.toBundle());
 
-       backBtn.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-             SignUp.super.onBackPressed();
-         }
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SignUp.super.onBackPressed();
+            }
         });
     }
 
