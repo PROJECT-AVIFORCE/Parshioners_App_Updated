@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="160dp"
+    android:layout_width="match_parent"
     android:layout_height="183dp"
     android:id="@+id/featured_cardview"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,8 +16,9 @@
         android:padding="10dp">
 
         <ImageView
+            android:layout_gravity="center"
             android:id="@+id/mv_image"
-            android:layout_width="match_parent"
+            android:layout_width="140dp"
             android:layout_height="140dp"
             android:clickable="true"
             android:scaleType="centerCrop"
@@ -33,7 +34,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/muli_black"
             android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 

@@ -18,8 +18,19 @@
         android:title="Contact Us"/>
 
     <item
+        android:id="@+id/report"
+        android:icon="@drawable/bug"
+        android:title="Report Bug" />
+
+    <item
         android:id="@+id/logout"
+        android:icon="@drawable/logout"
         android:title="Logout" />
+
+
+
+
+
 </group>
 
 

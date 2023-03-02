@@ -23,6 +23,7 @@ import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     static final float END_SCALE = 0.7f;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     RecyclerView featuredRecycler, mostViewedRecycler;
     RecyclerView.Adapter adapter;
@@ -148,7 +150,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     private void mostViewedRecycler() {
         mostViewedRecycler.setHasFixedSize(true);
-        mostViewedRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        mostViewedRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mostViewedFeatures = new ArrayList<>();
         mostViewedFeatures.add(new MostViewedHelperClass(R.drawable.youth, "Yuvajana Sakhyam"));
         mostViewedFeatures.add(new MostViewedHelperClass(R.drawable.women, "Sevika Sangham"));
