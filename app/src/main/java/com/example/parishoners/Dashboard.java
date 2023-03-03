@@ -104,6 +104,30 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 else drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.donate:
+                        Intent i=new Intent(getApplicationContext(),donations.class);
+                        startActivity(i);
+                        break;
+                    case R.id.report:
+                        Intent intent=new Intent(getApplicationContext(),reportissue.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.logout:
+                        Intent in=new Intent(getApplicationContext(),MainActivity.class);
+                        startActivity(in);
+                        finish();
+                        break;
+                }
+
+
+                return true;
+            }
+        });
+
 
         animateNavigationDrawer();
 

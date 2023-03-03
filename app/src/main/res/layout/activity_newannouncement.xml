@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <EditText
+            android:id="@+id/newtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -22,17 +23,10 @@
             android:padding="15dp"
             android:background="@drawable/edittextbg"
             android:minHeight="48dp" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
-            android:padding="15dp"
-            android:background="@drawable/edittextbg"
-            android:hint="subtitle" />
+
 
         <EditText
+            android:id="@+id/newdescription"
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:layout_margin="16dp"
@@ -46,16 +40,18 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/saveannouncementbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:id="@+id/saveannouncementbutton"
-        android:layout_margin="26dp"
-        app:backgroundTint="@color/red"
-        tools:ignore="SpeakableTextPresentCheck"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="26dp"
         android:src="@drawable/ic_baseline_done_24"
-        />
+        app:backgroundTint="@color/red"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 

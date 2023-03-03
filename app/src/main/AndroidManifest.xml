@@ -15,6 +15,13 @@
         android:theme="@style/Theme.Parishoners"
         tools:targetApi="31">
         <activity
+            android:name=".addevent"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Yuva_postannouncements"
             android:exported="false">
             <meta-data
