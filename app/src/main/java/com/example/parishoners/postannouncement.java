@@ -60,7 +60,7 @@ public class postannouncement extends AppCompatActivity {
     }
 
     private void Eventchangelistener() {
-        db.collection("announcements").orderBy("timestamp", Query.Direction.ASCENDING)
+        db.collection("announcements").orderBy("timestamp", Query.Direction.DESCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

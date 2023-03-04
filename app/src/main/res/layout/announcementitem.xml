@@ -6,7 +6,10 @@
     android:elevation="30dp"
     app:cardCornerRadius="16dp"
     android:layout_margin="12dp"
+    app:cardElevation="10dp"
     app:cardBackgroundColor="@color/light_grey">
+
+
 
     <LinearLayout
         android:layout_width="354dp"
@@ -22,18 +25,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Title:"
                 android:textColor="@color/black"
-                android:textSize="18sp"/>
-
-            <TextView
                 android:id="@+id/announcement_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="my title"
-                android:layout_marginBottom="5dp"
+                android:textStyle="bold"
+                android:textSize="23sp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="3dp"/>
 
 
@@ -44,20 +43,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Description: "
-                android:textColor="@color/black"
-                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/announcement_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
+                android:textSize="17sp"
                 android:text="my desc"
+
                 android:layout_marginLeft="3dp"/>
 
 
@@ -68,13 +62,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date: "
-                android:textColor="@color/black"
-                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/announcement_date"
@@ -88,6 +75,7 @@
 
 
     </LinearLayout>
+
 
 
 
