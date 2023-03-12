@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.parishoners.R;
 
@@ -27,6 +28,8 @@ public class SignUp3rdClass extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(SignUp3rdClass.this, MainActivity.class);
                 startActivity(i);
+                Toast.makeText(getApplicationContext(), "Successfully signed up!", Toast.LENGTH_SHORT).show();
+
             }
         });
 
