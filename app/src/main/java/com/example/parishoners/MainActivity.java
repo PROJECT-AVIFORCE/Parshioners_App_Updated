@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(MainActivity.this, "login failed", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MainActivity.this, "Incorrect Email or Password.Please Try Again.", Toast.LENGTH_SHORT).show();
                                     }
                                 });
 
@@ -75,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }else if(email.isEmpty()) {
                     loginemail.setError("Email cannot be empty");
-                } else {
+                }else if(pass.isEmpty()) {
+                    loginemail.setError("Password cannot be empty");
+                }else {
                     loginemail.setError("please enter valid email");
                 }
             }
