@@ -18,6 +18,9 @@ import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,9 +48,17 @@ public class newannouncement extends AppCompatActivity {
                     Timestamp date=Timestamp.now();
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                     announcementclass ann=new announcementclass();
-                    ann.setTimestamp(date);
+                    /*ann.setTimestamp(date);
+                    //Date date1=new Date();
+                    Date newdate=new Date(date1.getTime());
+                    DateFormat dateFormat=new SimpleDateFormat("dd-mm-yyyy");
+                    String datedata=dateFormat.format(newdate);*/
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    Date date1= new Date();
+                    String strDate = dateFormat.format(date1).toString();
                     ann.setTitles(t);
                     ann.setDes(desc);
+                    ann.setDate(strDate);
                     db.collection("announcements").
                             add(ann).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override

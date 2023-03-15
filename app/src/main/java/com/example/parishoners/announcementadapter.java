@@ -38,7 +38,8 @@ public class announcementadapter extends RecyclerView.Adapter<announcementadapte
     public void onBindViewHolder(@NonNull announcementadapter.announcementviewholder holder, int position) {
         announcementclass announcementclass=announcements.get(position);
         holder.title.setText(announcementclass.getTitles());
-        holder.date.setText(announcementclass.getTimestamp().toDate().toString());
+        holder.date.setText(announcementclass.getDate());
+        //holder.date.setText(announcementclass.getTimestamp().toDate().toString());
         holder.des.setText(announcementclass.getDes());
 
     }

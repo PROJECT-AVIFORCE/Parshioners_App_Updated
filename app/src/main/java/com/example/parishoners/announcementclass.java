@@ -1,11 +1,36 @@
 package com.example.parishoners;
 
 import com.google.firebase.Timestamp;
-import com.google.protobuf.StringValue;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class announcementclass {
-    String titles,des;
+    String titles;
+    String des;
+    private String strDate;
+
+    public String getDate() {
+        return this.date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    String date;
+    String time;
     Timestamp timestamp;
+
 
     public announcementclass() {
     }
@@ -34,4 +59,5 @@ public class announcementclass {
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
+
 }
