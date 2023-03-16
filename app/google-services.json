@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "473799894300",
-    "project_id": "authentication-fe28e",
-    "storage_bucket": "authentication-fe28e.appspot.com"
+    "project_number": "1039275246750",
+    "firebase_url": "https://backendlogsign-default-rtdb.firebaseio.com",
+    "project_id": "backendlogsign",
+    "storage_bucket": "backendlogsign.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:473799894300:android:e6a62a9373f494dc1e06d9",
+        "mobilesdk_app_id": "1:1039275246750:android:f408d76ac17a84693e278f",
         "android_client_info": {
           "package_name": "com.example.parishoners"
         }
       },
       "oauth_client": [
         {
-          "client_id": "473799894300-gl86i5tokd2h4s0c6rnitrs63lbe1qsn.apps.googleusercontent.com",
+          "client_id": "1039275246750-uiigi4t3u8g5cfka9cpbrk7hoi3lhhc9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCoElRYY7q51xr49b9TokDMova5CH5Enu4"
+          "current_key": "AIzaSyBSjZu8mfPTRH7D_Mff4q-Kiw7AQvXOhsM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "473799894300-gl86i5tokd2h4s0c6rnitrs63lbe1qsn.apps.googleusercontent.com",
+              "client_id": "1039275246750-uiigi4t3u8g5cfka9cpbrk7hoi3lhhc9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

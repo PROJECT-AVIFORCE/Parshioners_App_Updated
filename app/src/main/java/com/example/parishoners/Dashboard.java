@@ -217,7 +217,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(in);
             }
             if (text == "Individual Profile of the members is displayed here") {
-                Intent in = new Intent(this, UserProfile.class);
+                Intent in = new Intent(this, profile.class);
                 startActivity(in);
             }
 

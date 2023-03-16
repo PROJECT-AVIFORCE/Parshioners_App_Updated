@@ -9,9 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.protobuf.StringValue;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class announcementadapter extends RecyclerView.Adapter<announcementadapter.announcementviewholder>
@@ -39,8 +36,8 @@ public class announcementadapter extends RecyclerView.Adapter<announcementadapte
         announcementclass announcementclass=announcements.get(position);
         holder.title.setText(announcementclass.getTitles());
         holder.date.setText(announcementclass.getDate());
-        //holder.date.setText(announcementclass.getTimestamp().toDate().toString());
         holder.des.setText(announcementclass.getDes());
+        holder.time.setText(announcementclass.getTime());
 
     }
 
@@ -51,7 +48,7 @@ public class announcementadapter extends RecyclerView.Adapter<announcementadapte
 
     public static class announcementviewholder extends RecyclerView.ViewHolder{
 
-        TextView title,des,date;
+        TextView title,des,date,time;
 
 
         public announcementviewholder(@NonNull View itemView) {
@@ -60,6 +57,7 @@ public class announcementadapter extends RecyclerView.Adapter<announcementadapte
             title=itemView.findViewById(R.id.announcement_title);
             des=itemView.findViewById(R.id.announcement_desc);
             date=itemView.findViewById(R.id.announcement_date);
+            time=itemView.findViewById(R.id.announcement_time);
         }
     }
 }

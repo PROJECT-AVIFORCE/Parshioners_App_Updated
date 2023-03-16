@@ -45,20 +45,20 @@ public class newannouncement extends AppCompatActivity {
                 else {
                     String t = title.getText().toString();
                     String desc = des.getText().toString();
-                    Timestamp date=Timestamp.now();
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                     announcementclass ann=new announcementclass();
-                    /*ann.setTimestamp(date);
-                    //Date date1=new Date();
-                    Date newdate=new Date(date1.getTime());
-                    DateFormat dateFormat=new SimpleDateFormat("dd-mm-yyyy");
-                    String datedata=dateFormat.format(newdate);*/
+                    //date format
                     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     Date date1= new Date();
                     String strDate = dateFormat.format(date1).toString();
                     ann.setTitles(t);
                     ann.setDes(desc);
                     ann.setDate(strDate);
+                    //add time format
+                    DateFormat timeformat = new SimpleDateFormat("hh:mm a");
+                    Date time= new Date();
+                    String strtime = timeformat.format(time).toString();
+                    ann.setTime(strtime);
                     db.collection("announcements").
                             add(ann).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
@@ -77,10 +77,8 @@ public class newannouncement extends AppCompatActivity {
                             });
 
 
-
                 }
             }
-
 
 
         });

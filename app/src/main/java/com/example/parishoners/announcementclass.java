@@ -9,7 +9,7 @@ import java.util.Date;
 public class announcementclass {
     String titles;
     String des;
-    private String strDate;
+
 
     public String getDate() {
         return this.date;
@@ -29,7 +29,7 @@ public class announcementclass {
 
     String date;
     String time;
-    Timestamp timestamp;
+
 
 
     public announcementclass() {
@@ -52,12 +52,6 @@ public class announcementclass {
         this.des = des;
     }
 
-    public Timestamp getTimestamp() {
-        return timestamp;
-    }
 
-    public void setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
-    }
 
 }
