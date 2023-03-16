@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SignUp extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    private EditText email,pass;
+    private EditText email,pass,fname;
 
     ImageView backBtn,logo;
     Button next,login;
@@ -43,6 +43,7 @@ public class SignUp extends AppCompatActivity {
         slogan = findViewById(R.id.slogan);
         email= findViewById(R.id.Email);
         pass= findViewById(R.id.password);
+        fname = findViewById(R.id.name);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override

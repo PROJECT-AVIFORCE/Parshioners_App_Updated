@@ -76,9 +76,9 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="UserName"
+            android:hint="Family ID"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:startIconDrawable="@drawable/ic_baseline_person_24"
+            app:startIconDrawable="@drawable/ic_baseline_family_restroom_24"
             app:startIconTint="@color/black"
             app:hintTextColor="@color/black"
             app:endIconMode="clear_text"
@@ -89,7 +89,7 @@
             app:counterMaxLength="15">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Username"
+                android:id="@+id/family_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />

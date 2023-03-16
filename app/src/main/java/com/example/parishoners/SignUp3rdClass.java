@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.example.parishoners.R;
 
 public class SignUp3rdClass extends AppCompatActivity {
-    Button login;
+    Button login,next;
     ImageView backBtn;
 
     @Override
@@ -21,6 +21,7 @@ public class SignUp3rdClass extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up3rd_class);
 
         login = findViewById(R.id.login);
+        next = findViewById(R.id.signup_next_btn);
         backBtn = findViewById(R.id.signup_back_button);
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -28,8 +29,6 @@ public class SignUp3rdClass extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(SignUp3rdClass.this, MainActivity.class);
                 startActivity(i);
-                Toast.makeText(getApplicationContext(), "Successfully signed up!", Toast.LENGTH_SHORT).show();
-
             }
         });
 
@@ -37,6 +36,13 @@ public class SignUp3rdClass extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SignUp3rdClass.super.onBackPressed();
+            }
+        });
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(SignUp3rdClass.this, "Sign in Successful", Toast.LENGTH_SHORT).show();
             }
         });
     }
