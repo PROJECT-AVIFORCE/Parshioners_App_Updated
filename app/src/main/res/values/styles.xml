@@ -15,6 +15,13 @@
 
         <!--background color when selected-->
         <item name="colorControlHighlight">@color/black</item>
+    </style>
+
+    <style name="rounded_corners">
+
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+        <item name="color">@color/silver</item>
 
 
     </style>

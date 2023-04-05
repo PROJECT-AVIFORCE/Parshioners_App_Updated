@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:id="@+id/announcement_cardview"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:elevation="30dp"
-    app:cardCornerRadius="16dp"
-    android:layout_margin="12dp"
+    app:cardUseCompatPadding="true"
     app:cardElevation="10dp"
-    app:cardBackgroundColor="@color/light_grey">
-
+    app:cardCornerRadius="10dp"
+    app:contentPadding="10dp"
+    android:layout_height="wrap_content">
 
 
     <LinearLayout
-        android:layout_width="354dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="8dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginVertical="2dp"
+        android:layout_marginHorizontal="2dp"
+        android:background="@color/silver"
         android:orientation="vertical">
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -26,18 +26,22 @@
             android:orientation="horizontal">
 
             <TextView
-                android:textColor="@color/black"
                 android:id="@+id/announcement_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:text="my title"
-                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:textSize="23sp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="3dp"/>
-
+                android:textStyle="bold" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:alpha="1.0"
+            android:background="@color/black" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -49,11 +53,11 @@
                 android:id="@+id/announcement_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_marginBottom="5dp"
-                android:textSize="17sp"
                 android:text="my desc"
 
-                android:layout_marginLeft="3dp"/>
+                android:textSize="17sp" />
 
 
         </LinearLayout>
@@ -68,18 +72,17 @@
                 android:id="@+id/announcement_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="my date"
-                android:layout_marginLeft="3dp"/>
+                android:layout_marginLeft="5dp"
+                android:text="my date" />
+
             <TextView
                 android:id="@+id/announcement_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="my time"
-                android:layout_marginLeft="6dp"/>
-
+                android:layout_marginLeft="6dp"
+                android:text="my time" />
 
         </LinearLayout>
-
 
 
     </LinearLayout>
