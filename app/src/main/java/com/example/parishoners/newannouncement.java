@@ -1,22 +1,26 @@
 package com.example.parishoners;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.Timestamp;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -41,40 +45,49 @@ public class newannouncement extends AppCompatActivity {
 
                 if(title.getText().toString().isEmpty()||des.getText().toString().isEmpty()){
                     Toast.makeText(newannouncement.this, "FIELDS CANNOT BE EMPTY", Toast.LENGTH_SHORT).show();
+
                 }
                 else {
                     String t = title.getText().toString();
                     String desc = des.getText().toString();
-                    FirebaseFirestore db = FirebaseFirestore.getInstance();
-                    announcementclass ann=new announcementclass();
+
+                    FirebaseDatabase db=FirebaseDatabase.getInstance();
+                    DatabaseReference root=db.getReference().child("Announcements");
+
                     //date format
                     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     Date date1= new Date();
                     String strDate = dateFormat.format(date1).toString();
-                    ann.setTitles(t);
-                    ann.setDes(desc);
-                    ann.setDate(strDate);
+
                     //add time format
                     DateFormat timeformat = new SimpleDateFormat("hh:mm a");
                     Date time= new Date();
                     String strtime = timeformat.format(time).toString();
-                    ann.setTime(strtime);
-                    db.collection("announcements").
-                            add(ann).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                                    Toast.makeText(newannouncement.this, "data has been inserted", Toast.LENGTH_SHORT).show();
-                                    finish();
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.w(TAG, "Error adding document", e);
-                                    Toast.makeText(newannouncement.this, "Failed to add data", Toast.LENGTH_SHORT).show();
-                                }
-                            });
+
+                    HashMap map=new HashMap<>();
+                    map.put("Title",t);
+                    map.put("Body",desc);
+                    map.put("Date",strDate);
+                    map.put("Time",strtime);
+                    root.push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(newannouncement.this, "data has been inserted", Toast.LENGTH_SHORT).show();
+                            announcementclass ann=new announcementclass();
+                            ann.setTitle(t);
+                            ann.setBody(desc);
+                            ann.setDate(strDate);
+                            //add time to announcement class
+                            ann.setTime(strtime);
+                            finish();
+                            Intent intent=new Intent(getApplicationContext(),Dashboard.class);
+                            startActivity(intent);
+
+
+
+                        }
+                    });
+
 
 
                 }

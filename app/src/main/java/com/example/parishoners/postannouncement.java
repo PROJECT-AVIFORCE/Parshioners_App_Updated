@@ -1,5 +1,6 @@
 package com.example.parishoners;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,20 +14,22 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class postannouncement extends AppCompatActivity {
     RecyclerView announcementview;
-    FirebaseFirestore db;
-    List<announcementclass> arrayList;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef ;
+
+    ArrayList<announcementclass> arrayList;
     announcementadapter adapter;
     FloatingActionButton post;
 
@@ -38,13 +41,11 @@ public class postannouncement extends AppCompatActivity {
         announcementview.setHasFixedSize(true);
         announcementview.setLayoutManager(new LinearLayoutManager(this));
 
-        db=FirebaseFirestore.getInstance();
-
-        arrayList=new ArrayList<announcementclass>();
-        adapter=new announcementadapter(this,arrayList);
+        myRef=database.getReference("Announcements");
+        arrayList=new ArrayList<>();
+        adapter=new announcementadapter(getApplicationContext(),arrayList);
         announcementview.setAdapter(adapter);
         Eventchangelistener();
-
 
 
 
@@ -60,30 +61,23 @@ public class postannouncement extends AppCompatActivity {
     }
 
     private void Eventchangelistener() {
-        db.collection("announcements").orderBy("date", Query.Direction.ASCENDING)
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-
-                if(error!=null){
-                    Log.e("firestore error",error.getMessage());
-                    return;
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    announcementclass announcementclass=dataSnapshot.getValue(announcementclass.class);
+                    arrayList.add(announcementclass);
+                    dataSnapshot.getKey();
                 }
 
-                for(DocumentChange documentChange :value.getDocumentChanges()){
-                    if(documentChange.getType()==DocumentChange.Type.ADDED||
-                            documentChange.getType()==DocumentChange.Type.MODIFIED||
-                            documentChange.getType()==DocumentChange.Type.REMOVED
-                    )
-                    {
+                adapter.notifyDataSetChanged();
+            }
 
-                        arrayList.add(documentChange.getDocument().toObject(announcementclass.class));
-
-                    }
-                    adapter.notifyDataSetChanged();
-                }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
+
     }
 }

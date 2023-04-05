@@ -1,56 +1,52 @@
 package com.example.parishoners;
 
-import com.google.firebase.Timestamp;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class announcementclass {
-    String titles;
-    String des;
+    public String getTitle() {
+        return Title;
+    }
+
+    public void setTitle(String title) {
+        this.Title = title;
+    }
+
+    public String getBody() {
+        return Body;
+    }
+
+    public void setBody(String body) {
+        this.Body = body;
+    }
+
+    String Title;
+    String Body;
 
 
     public String getDate() {
-        return this.date;
+        return this.Date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate(String Date) {
+        this.Date = Date;
     }
 
     public String getTime() {
-        return time;
+        return Time;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setTime(String Time) {
+        this.Time = Time;
     }
 
-    String date;
-    String time;
+    String Date;
+    String Time;
 
 
 
     public announcementclass() {
     }
 
-    public String getTitles() {
-        return titles;
-    }
 
-    public void setTitles(String titles) {
-        this.titles = titles;
-    }
-
-
-    public String getDes() {
-        return des;
-    }
-
-    public void setDes(String des) {
-        this.des = des;
-    }
 
 
 

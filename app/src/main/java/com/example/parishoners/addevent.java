@@ -67,7 +67,7 @@ public class addevent extends AppCompatActivity {
                 {
                     Toast.makeText(addevent.this, "data cannot be inserted", Toast.LENGTH_SHORT).show();
                 }
-                Intent i=new Intent();
+                //Intent i=new Intent();
 
 
             }

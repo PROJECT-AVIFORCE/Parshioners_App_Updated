@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".updateannouncement"
+    tools:context=".newannouncement"
     android:background="@color/light_grey"
     android:orientation="vertical">
 
@@ -12,7 +12,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <RelativeLayout
+            android:backgroundTint="@color/light_grey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:id="@+id/header_title"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/muli_black"
+                android:gravity="center"
+                android:text="UPDATE Announcement"
+                android:textAllCaps="true"
+                android:textColor="@color/Light_black"
+                android:textSize="20sp" />
+
+
+            <ImageView
+                android:id="@+id/menu_icon"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_outline_arrow_back_24" />
+
+        </RelativeLayout>
+
+
+
         <EditText
+            android:id="@+id/newUtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -22,17 +55,10 @@
             android:padding="15dp"
             android:background="@drawable/edittextbg"
             android:minHeight="48dp" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
-            android:padding="15dp"
-            android:background="@drawable/edittextbg"
-            android:hint="subtitle" />
+
 
         <EditText
+            android:id="@+id/newUdescription"
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:layout_margin="16dp"
@@ -46,16 +72,18 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/updateannouncementbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:id="@+id/updateannouncementbutton"
-        android:layout_margin="26dp"
-        app:backgroundTint="@color/red"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:src="@drawable/ic_baseline_done_24"
-        />
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="26dp"
+        android:src="@drawable/white_tick"
+        app:backgroundTint="@color/navy_blue"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 
