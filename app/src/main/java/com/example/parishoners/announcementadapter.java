@@ -5,18 +5,18 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 
@@ -37,7 +37,7 @@ public class announcementadapter extends RecyclerView.Adapter<announcementadapte
     public announcementadapter.announcementviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v;
-        v= LayoutInflater.from(context).inflate(R.layout.announcementitem,parent,false);
+        v= LayoutInflater.from(context).inflate(R.layout.adminannouncementtask,parent,false);
 
         return new announcementviewholder(v);
     }
@@ -50,18 +50,42 @@ public class announcementadapter extends RecyclerView.Adapter<announcementadapte
         holder.Body.setText(announcementclass.getBody());
         holder.Time.setText(announcementclass.getTime());
 
-        holder.announcement.setOnClickListener(new View.OnClickListener() {
+
+        holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //go to update announcement class
                 Intent i=new Intent(v.getContext(),updateannouncement.class);
                 i.putExtra("Title",announcementclass.getTitle());
                 i.putExtra("Body",announcementclass.getBody());
                 i.putExtra("Time",announcementclass.getTime());
                 i.putExtra("Date",announcementclass.getDate());
-
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 v.getContext().startActivity(i);
+
+
+            }
+        });
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DatabaseReference reference=FirebaseDatabase.getInstance().getReference().child("Announcements");
+                Query q=reference.orderByChild("Title").equalTo(announcementclass.getTitle());
+                        q.getRef().setValue(null)
+//                        reference.setValue(null)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                            }
+                        });
+
+            }
+        });
+
+        holder.announcement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
 
             }
@@ -72,6 +96,7 @@ public class announcementadapter extends RecyclerView.Adapter<announcementadapte
 
     }
 
+
     @Override
     public int getItemCount() {
 
@@ -81,18 +106,20 @@ public class announcementadapter extends RecyclerView.Adapter<announcementadapte
     public static class announcementviewholder extends RecyclerView.ViewHolder{
 
         TextView Title,Body,Date,Time;
-        public CardView announcement;
+        CardView announcement;
+        ImageView edit,delete;
 
 
 
         public announcementviewholder(@NonNull View itemView) {
             super(itemView);
-
-            Title=itemView.findViewById(R.id.announcement_title);
-            Body=itemView.findViewById(R.id.announcement_desc);
-            Date=itemView.findViewById(R.id.announcement_date);
-            Time=itemView.findViewById(R.id.announcement_time);
-            announcement=itemView.findViewById(R.id.announcement_cardview);
+            edit=itemView.findViewById(R.id.editannouncement);
+            delete=itemView.findViewById(R.id.deleteannouncement);
+            Title=itemView.findViewById(R.id.atitle);
+            Body=itemView.findViewById(R.id.adescription);
+            Date=itemView.findViewById(R.id.aannouncement_date);
+            Time=itemView.findViewById(R.id.aannouncement_time);
+            announcement=itemView.findViewById(R.id.announcement_acardview);
         }
     }
 }

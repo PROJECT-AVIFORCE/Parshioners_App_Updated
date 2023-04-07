@@ -1,34 +1,29 @@
 package com.example.parishoners;
 
 
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
 
 public class newannouncement extends AppCompatActivity {
+    ArrayList<announcementclass> arrayList;
     EditText title,des;
     FloatingActionButton b1;
     @Override
@@ -79,10 +74,10 @@ public class newannouncement extends AppCompatActivity {
                             ann.setDate(strDate);
                             //add time to announcement class
                             ann.setTime(strtime);
+                             //arrayList.add(ann);
                             finish();
                             Intent intent=new Intent(getApplicationContext(),Dashboard.class);
                             startActivity(intent);
-
 
 
                         }

@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/muli_black"
                 android:gravity="center"
-                android:text="UPDATE Announcement"
+                android:text="Update Announcements"
                 android:textAllCaps="true"
                 android:textColor="@color/Light_black"
                 android:textSize="20sp" />
@@ -45,7 +45,7 @@
 
 
         <EditText
-            android:id="@+id/newUtitle"
+            android:id="@+id/updatetitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -58,7 +58,7 @@
 
 
         <EditText
-            android:id="@+id/newUdescription"
+            android:id="@+id/updatedescription"
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:layout_margin="16dp"

@@ -1,17 +1,13 @@
 package com.example.parishoners;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -20,11 +16,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class postannouncement extends AppCompatActivity {
+
+
     RecyclerView announcementview;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef ;
@@ -45,6 +42,7 @@ public class postannouncement extends AppCompatActivity {
         arrayList=new ArrayList<>();
         adapter=new announcementadapter(getApplicationContext(),arrayList);
         announcementview.setAdapter(adapter);
+
         Eventchangelistener();
 
 
@@ -67,9 +65,9 @@ public class postannouncement extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                     announcementclass announcementclass=dataSnapshot.getValue(announcementclass.class);
                     arrayList.add(announcementclass);
-                    dataSnapshot.getKey();
-                }
+//                    dataSnapshot.getKey();
 
+                }
                 adapter.notifyDataSetChanged();
             }
 
