@@ -1,20 +1,55 @@
 package com.example.parishoners;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
+//import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
+//import java.util.Calendar;
 
 public class SignUp2ndClass extends AppCompatActivity {
+    FirebaseDatabase database;
+    DatabaseReference reference;
     ImageView backBtn,logo;
     Button next,login;
     TextView titletxt,slogan;
+   RadioGroup radio;
+    RadioButton gen;
+    FirebaseFirestore fstore;
+    FirebaseAuth auth;
+    String UserID;
+    EditText phone, age;
+
+    //DatePicker datePicker;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +57,91 @@ public class SignUp2ndClass extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up2nd_class);
 
         //Hooks
+        auth = FirebaseAuth.getInstance();
         backBtn = findViewById(R.id.signup_back_button);
         next = findViewById(R.id.signup_next_btn);
         logo = findViewById(R.id.logo);
         login = findViewById(R.id.login);
         titletxt = findViewById(R.id.title_text);
         slogan = findViewById(R.id.slogan);
+        radio=findViewById(R.id.rg);
+        phone = findViewById(R.id.phoneNO);
+        age = findViewById(R.id.ageid);
+        fstore = FirebaseFirestore.getInstance();
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                database = FirebaseDatabase.getInstance();
+                reference = database.getReference("users");
+
+                int ID=radio.getCheckedRadioButtonId();
+
+                gen =findViewById(ID);
+
+                Toast.makeText(SignUp2ndClass.this, "first test", Toast.LENGTH_SHORT).show();
+
+                String gender = gen.getText().toString();
+                String dob = age.getText().toString();
+                String Phone = phone.getText().toString();
+
+
+                String UserEmail = getIntent().getStringExtra("emailkey");
+                String name = getIntent().getStringExtra("keyname");
+                String password = getIntent().getStringExtra("keypass");
+                String famid = getIntent().getStringExtra("keyfid");
+
+
+
+                auth.createUserWithEmailAndPassword(UserEmail,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(SignUp2ndClass.this,"signup Successful",Toast.LENGTH_SHORT).show();
+
+                            UserID= auth.getCurrentUser().getUid();
+                            Toast.makeText(SignUp2ndClass.this, "uiserid"+UserID, Toast.LENGTH_SHORT).show();
+
+                            DocumentReference documentReference = fstore.collection("users").document(UserID);
+                            Map<String,Object> user = new HashMap<>();
+                            user.put("name",name);
+                            user.put("FamilyID",famid);
+                            user.put("address",UserEmail);
+                            user.put("gender",gender);
+                           user.put("phno",Phone);
+                            user.put("dob",dob);
+
+
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(SignUp2ndClass.this, "sucsess data", Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(SignUp2ndClass.this, "failed", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            startActivity(new Intent(getApplicationContext(),Dashboard.class));
+                        } else {
+                            Toast.makeText(SignUp2ndClass.this, "Signup failed" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+                Toast.makeText(SignUp2ndClass.this, "success", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 
 
-    public void callNextSignupScreen(View view){
+
+
+   public void callNextSignupScreen(View view){
         Intent intent = new Intent(getApplicationContext(), SignUp3rdClass.class);
 
         //Add transition
@@ -48,11 +157,7 @@ public class SignUp2ndClass extends AppCompatActivity {
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp2ndClass.this,pairs);
         startActivity(intent,options.toBundle());
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SignUp2ndClass.super.onBackPressed();
-            }
-        });
+
     }
+
 }

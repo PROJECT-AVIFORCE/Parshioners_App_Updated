@@ -33,13 +33,12 @@
             android:id="@+id/fullname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Avinash Pandey"
-            android:includeFontPadding="false"
-            android:textSize="20sp"
-            android:fontFamily="@font/muli_black"
-            android:layout_toRightOf="@+id/profile_image"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/profile_image"
+            android:fontFamily="@font/muli_black"
+            android:includeFontPadding="false"
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -67,12 +66,12 @@
             android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_account_circle_24"
-                android:text="Avinash Pandey"
-                android:drawablePadding="10dp">
-            </com.google.android.material.textfield.TextInputEditText>
+                android:drawablePadding="10dp"
+                android:text="Avinash Pandey"></com.google.android.material.textfield.TextInputEditText>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -84,12 +83,12 @@
             android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ageid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/age3"
-                android:text="20"
-                android:drawablePadding="10dp">
-            </com.google.android.material.textfield.TextInputEditText>
+                android:drawablePadding="10dp"
+                android:text="20"></com.google.android.material.textfield.TextInputEditText>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -101,12 +100,12 @@
             android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sex"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/gender2"
-                android:text="Male"
-                android:drawablePadding="10dp">
-            </com.google.android.material.textfield.TextInputEditText>
+                android:drawablePadding="10dp"
+                android:text="Male"></com.google.android.material.textfield.TextInputEditText>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -118,12 +117,12 @@
             android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/phone2"
-                android:text="9823465987"
-                android:drawablePadding="10dp">
-            </com.google.android.material.textfield.TextInputEditText>
+                android:drawablePadding="10dp"
+                android:text="9823465987"></com.google.android.material.textfield.TextInputEditText>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -135,12 +134,12 @@
             android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/email2"
-                android:text="avinashpandey9049@gmail.com"
-                android:drawablePadding="10dp">
-            </com.google.android.material.textfield.TextInputEditText>
+                android:drawablePadding="10dp"
+                android:text="avinashpandey9049@gmail.com"></com.google.android.material.textfield.TextInputEditText>
 
 
         </com.google.android.material.textfield.TextInputLayout>

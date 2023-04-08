@@ -1,11 +1,15 @@
 package com.example.parishoners;
 
+import static androidx.fragment.app.FragmentManager.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
@@ -15,18 +19,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class SignUp extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    private EditText email,pass,fname;
-
+    private EditText email,pass,fname,fid;
     ImageView backBtn,logo;
     Button next,login;
     TextView titletxt,slogan;
+   FirebaseFirestore fstore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,30 +56,34 @@ public class SignUp extends AppCompatActivity {
         email= findViewById(R.id.Email);
         pass= findViewById(R.id.password);
         fname = findViewById(R.id.name);
-
+        fid = findViewById(R.id.family_id);
+ fstore = FirebaseFirestore.getInstance();
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String user = email.getText().toString().trim();
+
+
+
+               String name= fname.getText().toString();
+                String famid = fid.getText().toString();
+
+                String useremail = email.getText().toString().trim();
                 String password = pass.getText().toString();
 
-                if(user.isEmpty()){
+
+                if(useremail.isEmpty()){
                     email.setError("email cannot be empty");
                 }
                 if (password.isEmpty()){
                     pass.setError("wrong password");
                 } else{
-                    auth.createUserWithEmailAndPassword(user,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(SignUp.this,"signup Successful",Toast.LENGTH_SHORT).show();
-                                startActivity( new Intent(SignUp.this,SignUp2ndClass.class));
-                            } else {
-                                Toast.makeText(SignUp.this, "Signup failed" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+
+                    Intent intent = new Intent(SignUp.this,SignUp2ndClass.class);
+                    intent.putExtra("emailkey",useremail);
+                    intent.putExtra("keyname",name);
+                    intent.putExtra("keypass",password);
+                    intent.putExtra("keyfid",famid);
+                   startActivity(intent);
                 }
             }
         });

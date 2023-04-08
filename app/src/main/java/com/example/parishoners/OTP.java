@@ -2,7 +2,10 @@ package com.example.parishoners;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 public class OTP extends AppCompatActivity {
 
@@ -11,4 +14,7 @@ public class OTP extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
     }
+
+
+
 }
