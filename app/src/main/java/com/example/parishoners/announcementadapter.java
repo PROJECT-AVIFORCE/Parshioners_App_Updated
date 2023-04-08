@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -76,7 +77,7 @@ public class announcementadapter extends RecyclerView.Adapter<announcementadapte
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-
+                                Toast.makeText(context, "Data Deleted Successfully Please go back to see the magic", Toast.LENGTH_SHORT).show();
                             }
                         });
 
