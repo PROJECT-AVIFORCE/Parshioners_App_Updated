@@ -41,17 +41,20 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/username"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="username">
+            android:hint="Email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:startIconDrawable="@drawable/ic_baseline_person_24"
+            app:startIconTint="@color/black">
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/user"
+                android:id="@+id/editTextTextEmailAddress3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                tools:ignore="TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
 

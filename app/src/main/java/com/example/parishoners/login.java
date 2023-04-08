@@ -23,9 +23,7 @@ public class login extends AppCompatActivity {
 
     EditText Username;
     EditText Password;
-    FirebaseDatabase database;
-    DatabaseReference reference;
-    private FirebaseAuth authi;
+    FirebaseAuth authi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +31,10 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-        Username = findViewById(R.id.user);
+        Username = findViewById(R.id.editTextTextEmailAddress3);
         Password = findViewById(R.id.pass);
         Button submit=findViewById(R.id.submit);
-
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference("admin");
+        authi= FirebaseAuth.getInstance();
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +51,7 @@ public class login extends AppCompatActivity {
                                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
-                                        Toast.makeText(login.this,"login successful",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(login.this,"WELCOME ADMIN",Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(login.this ,Dashboard.class));
                                         finish();
 
@@ -70,8 +66,8 @@ public class login extends AppCompatActivity {
                     }else{
                         Password.setError("Password cannot be empty");
                     }
-                }else if(email.isEmpty()) {
-                    Username.setError("Email cannot be empty");
+                }else if(email!="vipulfadte43@gmail.com") {
+                    Username.setError("NOT ADMIN");
                 }else if(password.isEmpty()) {
                     Username.setError("Password cannot be empty");
                 }else {

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,6 +27,7 @@ public class newannouncement extends AppCompatActivity {
     ArrayList<announcementclass> arrayList;
     EditText title,des;
     FloatingActionButton b1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,9 @@ public class newannouncement extends AppCompatActivity {
         b1=(FloatingActionButton) findViewById(R.id.saveannouncementbutton);
         title = (EditText)findViewById(R.id.newtitle);
         des=(EditText) findViewById(R.id.newdescription);
+
+
+
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override

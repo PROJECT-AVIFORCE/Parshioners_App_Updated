@@ -1,8 +1,11 @@
 package com.example.parishoners;
 
+import static androidx.fragment.app.FragmentManager.TAG;
+
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
@@ -45,7 +48,7 @@ public class SignUp2ndClass extends AppCompatActivity {
     FirebaseAuth auth;
     String UserID;
     EditText phone, age;
-
+String TAG="TAG";
     //DatePicker datePicker;
 
 
@@ -80,7 +83,6 @@ public class SignUp2ndClass extends AppCompatActivity {
 
                 gen =findViewById(ID);
 
-                Toast.makeText(SignUp2ndClass.this, "first test", Toast.LENGTH_SHORT).show();
 
                 String gender = gen.getText().toString();
                 String dob = age.getText().toString();
@@ -98,10 +100,9 @@ public class SignUp2ndClass extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(SignUp2ndClass.this,"signup Successful",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp2ndClass.this,"WELCOME "+name.toUpperCase(),Toast.LENGTH_SHORT).show();
 
                             UserID= auth.getCurrentUser().getUid();
-                            Toast.makeText(SignUp2ndClass.this, "uiserid"+UserID, Toast.LENGTH_SHORT).show();
 
                             DocumentReference documentReference = fstore.collection("users").document(UserID);
                             Map<String,Object> user = new HashMap<>();
@@ -116,8 +117,7 @@ public class SignUp2ndClass extends AppCompatActivity {
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Toast.makeText(SignUp2ndClass.this, "sucsess data", Toast.LENGTH_SHORT).show();
-                                }
+                                    Log.d(TAG, "onSuccess: DATA STORAGE ");                                }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
@@ -130,8 +130,6 @@ public class SignUp2ndClass extends AppCompatActivity {
                         }
                     }
                 });
-
-                Toast.makeText(SignUp2ndClass.this, "success", Toast.LENGTH_SHORT).show();
             }
         });
 

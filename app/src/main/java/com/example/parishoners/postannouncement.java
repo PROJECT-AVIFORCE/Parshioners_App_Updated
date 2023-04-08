@@ -3,6 +3,7 @@ package com.example.parishoners;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class postannouncement extends AppCompatActivity {
@@ -29,6 +32,8 @@ public class postannouncement extends AppCompatActivity {
     ArrayList<announcementclass> arrayList;
     announcementadapter adapter;
     FloatingActionButton post;
+    String UserID ;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,17 +50,29 @@ public class postannouncement extends AppCompatActivity {
 
         Eventchangelistener();
 
-
-
         post=findViewById(R.id.newannouncementbutton);
-        post.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),newannouncement.class);
-                startActivity(intent);
-            }
-        });
+//admin key
+     // String  adminID=;
+        //admin checker
+        auth = FirebaseAuth.getInstance();
+        UserID = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
+        if( UserID.equals("kaAwxZeCUDQpB421qKc5ArGfXci2")){
+
+            post.setVisibility(View.VISIBLE);
+            post.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent=new Intent(getApplicationContext(),newannouncement.class);
+                    startActivity(intent);
+                }
+            });
+
+    }else
+        {
+            post.setVisibility(View.INVISIBLE);
+
+           }
     }
 
     private void Eventchangelistener() {

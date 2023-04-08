@@ -38,17 +38,19 @@
             android:layout_toRightOf="@+id/profile_image"
             android:fontFamily="@font/muli_black"
             android:includeFontPadding="false"
+            android:text="helloe"
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/iduu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pandey Family"
-            android:textSize="14sp"
-            android:includeFontPadding="false"
-            android:layout_toRightOf="@+id/profile_image"
             android:layout_below="@+id/fullname"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/profile_image"
+            android:includeFontPadding="false"
+            android:text="Pandey Family"
+            android:textSize="14sp" />
 
 
     </RelativeLayout>

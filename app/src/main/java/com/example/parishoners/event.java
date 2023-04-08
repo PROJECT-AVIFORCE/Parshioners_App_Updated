@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class event extends AppCompatActivity {
 
@@ -27,6 +29,8 @@ public class event extends AppCompatActivity {
     eventadapter eventsadapter;
     ArrayList<eventclass> eventslist;
     Button event;
+    String UserID ;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,8 @@ public class event extends AppCompatActivity {
         eventsadapter=new eventadapter(this,eventslist);
         eventrecycler.setAdapter(eventsadapter);
 
+        auth = FirebaseAuth.getInstance();
+        UserID = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
         //fetch data from database
         root.addValueEventListener(new ValueEventListener() {
@@ -59,13 +65,25 @@ public class event extends AppCompatActivity {
 
             }
         });
-        event.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(getApplicationContext(),addevent.class);
-                startActivity(i);
-            }
-        });
+
+
+        if( UserID.equals("kaAwxZeCUDQpB421qKc5ArGfXci2")){
+
+            event.setVisibility(View.VISIBLE);
+            event.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i=new Intent(getApplicationContext(),addevent.class);
+                    startActivity(i);
+                }
+            });
+
+        }else
+        {
+            event.setVisibility(View.GONE);
+
+        }
+
 
 
     }

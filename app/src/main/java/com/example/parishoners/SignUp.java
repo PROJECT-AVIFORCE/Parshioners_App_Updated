@@ -29,6 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.jar.Attributes;
 
 
 public class SignUp extends AppCompatActivity {
@@ -71,6 +72,9 @@ public class SignUp extends AppCompatActivity {
                 String password = pass.getText().toString();
 
 
+                if(name.isEmpty()){
+                    email.setError("name cannot be empty");
+                }
                 if(useremail.isEmpty()){
                     email.setError("email cannot be empty");
                 }

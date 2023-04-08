@@ -82,6 +82,7 @@
         android:layout_marginEnd="26dp"
         android:layout_marginBottom="26dp"
         android:src="@drawable/white_tick"
+        android:visibility="visible"
         app:backgroundTint="@color/navy_blue"
         tools:ignore="SpeakableTextPresentCheck" />
 
