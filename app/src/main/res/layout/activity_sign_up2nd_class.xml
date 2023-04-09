@@ -56,7 +56,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Choose Gender"
+                android:text="Choose Gender :"
                 android:textColor="@color/black"
                 android:textSize="18sp"/>
 
@@ -97,7 +97,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select Your Age"
+                android:text="Select Your Age :"
                 android:textColor="@color/black"
                 android:textSize="18sp"/>
 
@@ -112,16 +112,22 @@
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/black"
                 app:hintTextColor="@color/black"
-                app:startIconDrawable="@drawable/ic_baseline_email_24"
+                app:startIconDrawable="@drawable/age_rezied"
                 app:startIconTint="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/ageid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Enter phone no :"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/phid"
@@ -141,7 +147,7 @@
                     android:id="@+id/phoneNO"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number" />
+                    android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -149,28 +155,16 @@
         </LinearLayout>
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/signup_next_btn"
-            android:onClick="callNextSignupScreen"
-            android:text="Next"
-            android:fontFamily="@font/muli_black"
-            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
             android:layout_marginTop="10dp"
             android:elevation="5dp"
-            android:transitionName="transition_next_btn"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/login"
-            android:text="login"
-            android:onClick="callbacktologinscreen"
-            android:textColor="@color/black"
-            android:background="#00000000"
-            android:elevation="5dp"
             android:fontFamily="@font/muli_black"
-            android:transitionName="transition_login_btn"/>
+            android:onClick="callNextSignupScreen"
+            android:text="SUBMIT"
+            android:textColor="@color/white"
+            android:transitionName="transition_next_btn" />
 
     </LinearLayout>
 

@@ -1,6 +1,8 @@
 package com.example.parishoners;
 
 
+import static androidx.fragment.app.FragmentManager.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,13 +11,17 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -27,12 +33,15 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.auth.User;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class UserProfile extends AppCompatActivity {
     FirebaseAuth auth;
     EditText  titlename ,age,gender ,phone ,email;
     TextView Fullname ,family;
     FirebaseFirestore fstore;
-    Button logout;
+    Button logout, updatebtn;
  String UserID;
 
     @SuppressLint("WrongViewCast")
@@ -42,7 +51,8 @@ public class UserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
         auth = FirebaseAuth.getInstance();
         logout =findViewById(R.id.logout);
-        fstore = FirebaseFirestore.getInstance();
+        updatebtn=findViewById(R.id.update);
+                fstore = FirebaseFirestore.getInstance();
         titlename  =findViewById(R.id.name);
         age = findViewById(R.id.ageid);
         gender = findViewById(R.id.sex);
@@ -66,12 +76,24 @@ Fullname =findViewById(R.id.fullname);
                 email.setText(value.getString("address"));
                 family.setText(value.getString("FamilyID"));
 
-                auth = FirebaseAuth.getInstance();
+               // auth = FirebaseAuth.getInstance();
             }
         });
 
 
+updatebtn.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
 
+                DocumentReference documentReference = fstore.collection("users").document(UserID);
+
+
+      // documentReference.update("name","vipul fadte");
+
+
+
+    }
+});
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
