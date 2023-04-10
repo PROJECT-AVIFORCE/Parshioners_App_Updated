@@ -3,7 +3,6 @@ package com.example.parishoners;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -82,7 +81,7 @@ public class postannouncement extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                     announcementclass announcementclass=dataSnapshot.getValue(announcementclass.class);
                     arrayList.add(announcementclass);
-//                    dataSnapshot.getKey();
+                   dataSnapshot.getKey();
 
                 }
                 adapter.notifyDataSetChanged();
