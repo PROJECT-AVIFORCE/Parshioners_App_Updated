@@ -34,17 +34,16 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="23dp"
-        android:layout_alignParentBottom="true"
+            android:layout_alignParentBottom="true"
             android:fontFamily="@font/muli_black"
             android:includeFontPadding="false"
             android:text="helloe"
             android:textSize="22sp" />
 
 
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="224dp"
+            android:layout_height="125dp"
             android:layout_centerInParent="true"
             android:layout_toRightOf="@id/profile_image"
             android:gravity="center"
@@ -74,6 +73,18 @@
                 android:fontFamily="@font/muli_black"
                 android:includeFontPadding="false"
                 android:text="9823456732"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/adrees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fullname"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/profile_image"
+                android:fontFamily="@font/muli_black"
+                android:includeFontPadding="false"
+                android:text="addresss"
                 android:textSize="15sp" />
 
             <TextView

@@ -21,8 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class UserProfile extends AppCompatActivity {
     FirebaseAuth auth;
-    EditText  titlename ,age,gender ,phone ,email;
-    TextView Fullname ,family;
+    EditText  titlename ,age,gender ,phone ,address;
+    TextView Fullname , titleEmail,agetext,gendertext,phonetext,adresstext;
     FirebaseFirestore fstore;
     Button logout, updatebtn;
     String UserID;
@@ -36,13 +36,21 @@ public class UserProfile extends AppCompatActivity {
         logout =findViewById(R.id.logout);
         updatebtn=findViewById(R.id.update);
                 fstore = FirebaseFirestore.getInstance();
-        titlename  =findViewById(R.id.name);
-        age = findViewById(R.id.ageid);
-        gender = findViewById(R.id.sex);
-        phone = findViewById(R.id.phoneid);
-        email = findViewById(R.id.emailid);
-Fullname =findViewById(R.id.fullname);
-        family =findViewById(R.id.iduu);
+
+
+         titlename  =findViewById(R.id.name);
+         age = findViewById(R.id.ageid);
+         gender = findViewById(R.id.sex);
+         phone = findViewById(R.id.phoneid);
+         address = findViewById(R.id.emailid);
+         Fullname =findViewById(R.id.fullname);
+         titleEmail =findViewById(R.id.iduu);
+         agetext =findViewById(R.id.age);
+         gendertext =findViewById(R.id.gender);
+         phonetext =findViewById(R.id.phone);
+         adresstext =findViewById(R.id.adrees);
+
+
         //retrive data
 
         UserID = auth.getCurrentUser().getUid();
@@ -52,14 +60,23 @@ Fullname =findViewById(R.id.fullname);
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 titlename.setText(value.getString("name"));
-                Fullname.setText(value.getString("name"));
                 age.setText(value.getString("dob"));
                 gender.setText(value.getString("gender"));
                 phone.setText(value.getString("phno"));
-                email.setText(value.getString("Email"));
-                family.setText(value.getString("address"));
+                address.setText(value.getString("address"));
 
-//                auth = FirebaseAuth.getInstance();
+
+
+
+//            profile card
+                Fullname.setText(value.getString("name"));
+                titleEmail.setText(value.getString("email"));
+                phonetext.setText(value.getString("phno"));
+                adresstext.setText(value.getString("address"));
+                gendertext.setText(value.getString("gender"));
+                agetext.setText(value.getString("dob"));
+
+
             }
         });
 
@@ -74,8 +91,9 @@ String name1  = titlename.getText().toString();
         String age1  = age.getText().toString();
         String gender1  = gender.getText().toString();
         String phone1  = phone.getText().toString();
+        String famid  = address.getText().toString();
 
-        documentReference.update("name",name1,"age",age1,"gender",gender1,"phone",phone1);
+        documentReference.update("name",name1,"dob",age1,"gender",gender1,"phno",phone1,"address",famid);
 
 
     }
