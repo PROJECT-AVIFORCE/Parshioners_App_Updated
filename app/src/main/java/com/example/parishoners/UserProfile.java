@@ -73,8 +73,8 @@ Fullname =findViewById(R.id.fullname);
                 age.setText(value.getString("dob"));
                 gender.setText(value.getString("gender"));
                 phone.setText(value.getString("phno"));
-                email.setText(value.getString("address"));
-                family.setText(value.getString("FamilyID"));
+                email.setText(value.getString("Email"));
+                family.setText(value.getString("address"));
 
                // auth = FirebaseAuth.getInstance();
             }
@@ -100,7 +100,7 @@ updatebtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 auth.signOut();
-                startActivity(new Intent(UserProfile.this, MainActivity.class));
+                startActivity(new Intent(UserProfile.this, SignUp.class));
                 finish();// ...
 
 
