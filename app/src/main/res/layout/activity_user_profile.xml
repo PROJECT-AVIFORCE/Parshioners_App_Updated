@@ -28,30 +28,80 @@
             app:civ_border_color="#939393"
             app:civ_border_width="3dp" />
 
-
         <TextView
             android:id="@+id/fullname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/profile_image"
+            android:layout_marginLeft="23dp"
+        android:layout_alignParentBottom="true"
             android:fontFamily="@font/muli_black"
             android:includeFontPadding="false"
             android:text="helloe"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
 
-        <TextView
-            android:id="@+id/iduu"
+
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fullname"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/profile_image"
-            android:includeFontPadding="false"
-            android:text="Pandey Family"
-            android:textSize="14sp" />
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@id/profile_image"
+            android:gravity="center"
+            android:orientation="vertical">
 
+
+            <TextView
+                android:id="@+id/iduu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fullname"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/profile_image"
+                android:fontFamily="@font/muli_black"
+                android:includeFontPadding="false"
+                android:text="Pandey Family"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fullname"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/profile_image"
+                android:fontFamily="@font/muli_black"
+                android:includeFontPadding="false"
+                android:text="9823456732"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fullname"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/profile_image"
+                android:fontFamily="@font/muli_black"
+                android:includeFontPadding="false"
+                android:text="male"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fullname"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/profile_image"
+                android:fontFamily="@font/muli_black"
+                android:includeFontPadding="false"
+                android:text="18"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
 
     </RelativeLayout>
 
@@ -132,14 +182,14 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="Address"
             android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/email2"
+                android:drawableLeft="@drawable/loca2"
                 android:drawablePadding="10dp"
                 android:text="avinashpandey9049@gmail.com"></com.google.android.material.textfield.TextInputEditText>
 

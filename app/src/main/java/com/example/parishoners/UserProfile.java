@@ -87,9 +87,12 @@ updatebtn.setOnClickListener(new View.OnClickListener() {
 
                 DocumentReference documentReference = fstore.collection("users").document(UserID);
 
+String name1  = titlename.getText().toString();
+        String age1  = age.getText().toString();
+        String gender1  = gender.getText().toString();
+        String phone1  = phone.getText().toString();
 
-      // documentReference.update("name","vipul fadte");
-
+        documentReference.update("name",name1,"age",age1,"gender",gender1,"phone",phone1);
 
 
     }
