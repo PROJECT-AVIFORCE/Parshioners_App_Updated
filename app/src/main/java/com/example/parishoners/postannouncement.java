@@ -3,6 +3,7 @@ package com.example.parishoners;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,11 +34,20 @@ public class postannouncement extends AppCompatActivity {
     FloatingActionButton post;
     String UserID ;
     FirebaseAuth auth;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_postannouncement);
+
+        back=findViewById(R.id.backmenu_icon);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         announcementview=(RecyclerView) findViewById(R.id.allannouncements);
         announcementview.setHasFixedSize(true);
         announcementview.setLayoutManager(new LinearLayoutManager(this));

@@ -10,42 +10,35 @@
     tools:context=".event"
     android:background="@color/light_grey">
 
-    <FrameLayout
+    <RelativeLayout
+        android:backgroundTint="@color/light_grey"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:id="@+id/event_title"
+        android:padding="10dp">
 
-        <LinearLayout
+        <TextView
+            android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:fontFamily="@font/muli_black"
+            android:gravity="center"
+            android:text="All Events"
+            android:textAllCaps="true"
+            android:textColor="@color/Light_black"
+            android:textSize="20sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hello "
-                android:textColor="@color/black"
-                android:layout_marginTop="20dp"
-                android:textSize="18sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="All tasks"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="28sp"
-                tools:ignore="MissingPrefix" />
-
-        </LinearLayout>
 
         <ImageView
+            android:id="@+id/backbtn"
             android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="right|center"
-            android:background="@drawable/calendar"
-            android:id="@+id/calendar"/>
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_outline_arrow_back_24" />
 
-    </FrameLayout>
+    </RelativeLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,17 +51,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <ImageView
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:id="@+id/noDataImage"
-                android:layout_gravity="center"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:id="@+id/taskRecycler"
-                android:background="@color/light_grey"/>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </FrameLayout>
 
@@ -79,8 +66,9 @@
             android:layout_gravity="center"
             android:textSize="18sp"
             android:layout_margin="5dp"
-            android:background="#00000000"
+            android:backgroundTint="@color/light_grey"
             android:elevation="0dp"
+            android:background="#00000000"
             android:fontFamily="@font/asap_medium"
             android:text="Add Event"
             android:textColor="@color/black" />

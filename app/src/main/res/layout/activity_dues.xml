@@ -26,7 +26,7 @@
 
 
         <ImageView
-            android:id="@+id/menu_icon"
+            android:id="@+id/duesback_icon"
             android:layout_width="30dp"
             android:layout_height="40dp"
             android:layout_centerVertical="true"

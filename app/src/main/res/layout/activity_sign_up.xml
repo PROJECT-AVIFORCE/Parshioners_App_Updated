@@ -151,16 +151,7 @@
             android:elevation="5dp"
             android:transitionName="transition_next_btn"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/login"
-            android:text="login"
-            android:textColor="@color/black"
-            android:background="#00000000"
-            android:elevation="5dp"
-            android:fontFamily="@font/muli_black"
-            android:transitionName="transition_login_btn"/>
+
 
     </LinearLayout>
 

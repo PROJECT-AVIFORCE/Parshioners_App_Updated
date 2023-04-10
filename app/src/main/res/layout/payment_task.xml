@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:background="@color/Light_blue">
+        android:background="@color/mintcream">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,7 +73,7 @@
                     android:singleLine="true"
                     android:textSize="20sp"
                     android:layout_weight="1"
-                    android:id="@+id/title"
+                    android:id="@+id/dtitle"
                     android:textColor="@android:color/black"/>
 
 
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 tools:text="Please Pay Annual Subcription latest by 31 April 2023"
                 android:alpha="0.5"
-                android:id="@+id/description"
+                android:id="@+id/ddescription"
                 android:layout_marginBottom="5dp"
                 android:textSize="14sp"
                 android:textColor="@android:color/black"/>
@@ -113,10 +113,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="due time :"
+                    tools:text="date "
                     android:singleLine="true"
                     android:alpha="0.5"
-                    android:id="@+id/time"
+                    android:id="@+id/ddate"
                     android:textSize="12sp"
                     android:textColor="@android:color/black"/>
 
@@ -133,7 +133,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="due date :"
+                    tools:text="due time :"
                     android:singleLine="true"
                     android:alpha="0.5"
                     android:id="@+id/duestime"
@@ -141,7 +141,15 @@
                     android:textColor="@android:color/black"
                     android:layout_marginRight="15dp"/>
 
-
+                <TextView
+                    android:id="@+id/newtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.5"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    tools:text="date"/>
 
 
             </LinearLayout>

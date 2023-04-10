@@ -16,7 +16,7 @@
 
         <ImageView
             android:transitionName="transition_back_arrow_btn"
-            android:id="@+id/signup_back_button"
+            android:id="@+id/signup2_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"

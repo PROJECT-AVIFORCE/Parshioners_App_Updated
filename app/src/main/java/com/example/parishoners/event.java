@@ -1,14 +1,15 @@
 package com.example.parishoners;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -18,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class event extends AppCompatActivity {
@@ -31,14 +31,24 @@ public class event extends AppCompatActivity {
     Button event;
     String UserID ;
     FirebaseAuth auth;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
+
+        back=findViewById(R.id.backbtn);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         event=(Button) findViewById(R.id.addTask);
         eventrecycler=findViewById(R.id.taskRecycler);
         eventrecycler.setHasFixedSize(true);
+
         eventrecycler.setLayoutManager(new LinearLayoutManager(this));
         eventslist= new ArrayList<>();
         eventsadapter=new eventadapter(this,eventslist);

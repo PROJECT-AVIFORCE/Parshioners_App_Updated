@@ -1,35 +1,19 @@
 package com.example.parishoners;
 
-import static androidx.fragment.app.FragmentManager.TAG;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.jar.Attributes;
 
 
 public class SignUp extends AppCompatActivity {
@@ -49,6 +33,12 @@ public class SignUp extends AppCompatActivity {
         //Hooks
         auth = FirebaseAuth.getInstance();
         backBtn = findViewById(R.id.signup_back_button);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         next = findViewById(R.id.signup_next_btn);
         logo = findViewById(R.id.logo);
         login = findViewById(R.id.login);
@@ -116,12 +106,12 @@ public class SignUp extends AppCompatActivity {
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this,pairs);
         startActivity(intent,options.toBundle());
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SignUp.super.onBackPressed();
-            }
-        });
+//        backBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                SignUp.super.onBackPressed();
+//            }
+//        });
     }
 
 

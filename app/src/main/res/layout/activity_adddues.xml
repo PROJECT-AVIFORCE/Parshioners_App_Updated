@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:background="@color/Light_blue"
+        android:background="@color/mintcream"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -111,7 +111,7 @@
         android:layout_marginBottom="26dp"
         android:src="@drawable/white_tick"
         android:visibility="visible"
-        app:backgroundTint="#3F98B9"
+        app:backgroundTint="@color/green"
         tools:ignore="SpeakableTextPresentCheck" />
 
 

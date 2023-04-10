@@ -3,6 +3,7 @@ package com.example.parishoners;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ public class adddues extends AppCompatActivity {
 
     EditText date1,duetitle,duetime,duedesc;
     FloatingActionButton adddues;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,14 @@ public class adddues extends AppCompatActivity {
         duetime=(EditText)findViewById(R.id.duetime);
         duedesc=(EditText)findViewById(R.id.duesdescription);
         adddues=(FloatingActionButton)findViewById(R.id.addduebutton);
+
+        back=findViewById(R.id.back_icon);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
 
