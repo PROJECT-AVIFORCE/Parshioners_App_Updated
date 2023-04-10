@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".adddues"
     android:orientation="vertical">
+
     <LinearLayout
-        android:background="@color/Sky_blue"
+        android:background="@color/Light_blue"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <RelativeLayout
             android:backgroundTint="@color/light_grey"
             android:layout_width="match_parent"
@@ -49,11 +51,14 @@
             android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
             android:hint="Dues Title"
+            android:elevation="15dp"
             android:padding="15dp"
             android:background="@drawable/edittextbg"
             android:minHeight="48dp" />
+
         <EditText
             android:id="@+id/duesdescription"
+            android:elevation="15dp"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_margin="16dp"
@@ -63,8 +68,10 @@
             android:gravity="start"
             android:background="@drawable/edittextbg"
             android:hint="due deatils" />
+
         <EditText
             android:id="@+id/duedate"
+            android:elevation="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -74,8 +81,10 @@
             android:padding="15dp"
             android:background="@drawable/edittextbg"
             android:minHeight="48dp" />
+
         <EditText
             android:id="@+id/duetime"
+            android:elevation="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -102,7 +111,7 @@
         android:layout_marginBottom="26dp"
         android:src="@drawable/white_tick"
         android:visibility="visible"
-        app:backgroundTint="@color/red"
+        app:backgroundTint="#3F98B9"
         tools:ignore="SpeakableTextPresentCheck" />
 
 

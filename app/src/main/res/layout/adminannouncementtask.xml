@@ -19,31 +19,31 @@
         android:background="@color/light_grey">
 
         <LinearLayout
-            android:layout_weight="9"
-            android:orientation="vertical"
             android:layout_width="0dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_margin="10dp"
                 android:id="@+id/atitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:text="Title"
-                android:textSize="24dp"
                 android:textColor="#000000"
-                android:textStyle="bold"/>
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
             <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="10dp"
                 android:id="@+id/adescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="Description"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/aannouncement_date"
@@ -57,9 +57,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:text="my time" />
+                android:text="my time"/>
+
 
         </LinearLayout>
+
 
         <LinearLayout
             android:orientation="vertical"
@@ -67,9 +69,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
 
+
+
             <ImageView
                 android:id="@+id/editannouncement"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="35dp"
                 android:layout_marginTop="12dp"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
