@@ -8,11 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import android.widget.Toast;
+import com.google.firebase.auth.FirebaseAuth;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -32,7 +36,7 @@ public class UserProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-        auth = FirebaseAuth.getInstance();
+          auth = FirebaseAuth.getInstance();
         logout =findViewById(R.id.logout);
         updatebtn=findViewById(R.id.update);
                 fstore = FirebaseFirestore.getInstance();
@@ -49,6 +53,8 @@ public class UserProfile extends AppCompatActivity {
          gendertext =findViewById(R.id.gender);
          phonetext =findViewById(R.id.phone);
          adresstext =findViewById(R.id.adrees);
+
+
 
 
         //retrive data
@@ -70,7 +76,7 @@ public class UserProfile extends AppCompatActivity {
 
 //            profile card
                 Fullname.setText(value.getString("name"));
-                titleEmail.setText(value.getString("email"));
+                titleEmail.setText(value.getString("Email"));
                 phonetext.setText(value.getString("phno"));
                 adresstext.setText(value.getString("address"));
                 gendertext.setText(value.getString("gender"));
@@ -81,7 +87,8 @@ public class UserProfile extends AppCompatActivity {
         });
 
 
-updatebtn.setOnClickListener(new View.OnClickListener() {
+
+        updatebtn.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
 
@@ -102,10 +109,11 @@ String name1  = titlename.getText().toString();
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                auth.signOut();
-                startActivity(new Intent(UserProfile.this, MainActivity.class));
-                finish();
 
+                startActivity(new Intent(UserProfile.this, MainActivity.class));
+
+                auth.signOut();
+                finish();
             }
         });
     }

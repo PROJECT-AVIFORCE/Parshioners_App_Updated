@@ -1,6 +1,7 @@
 package com.example.parishoners;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,7 @@ public class DuesAdapter extends RecyclerView.Adapter<DuesAdapter.MyViewHolder> 
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView dtitle,ddes,ddate,dtime,due,duetime;
+        TextView dtitle,ddes,ddate,dtime,due,duetime,paynow;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -57,6 +58,8 @@ public class DuesAdapter extends RecyclerView.Adapter<DuesAdapter.MyViewHolder> 
             dtime=itemView.findViewById(R.id.duestime);
             due=itemView.findViewById(R.id.duesdate);
             duetime=itemView.findViewById(R.id.newtime);
+            paynow = itemView.findViewById(R.id.status);
+
         }
     }
 }

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -20,6 +21,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class dues extends AppCompatActivity {
     FloatingActionButton adddue;
@@ -29,7 +31,8 @@ public class dues extends AppCompatActivity {
     DuesAdapter duesAdapter;
     FirebaseFirestore db;
     ImageView back;
-
+    String UserID ;
+    FirebaseAuth auth;
 
 
     @Override
@@ -63,13 +66,28 @@ public class dues extends AppCompatActivity {
 
 
        adddue=(FloatingActionButton) findViewById(R.id.adddues);
-       adddue.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent intent=new Intent(getApplicationContext(),adddues.class);
-               startActivity(intent);
-           }
-       });
+
+        auth = FirebaseAuth.getInstance();
+        UserID = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+
+        if( UserID.equals("kaAwxZeCUDQpB421qKc5ArGfXci2")){
+
+            adddue.setVisibility(View.VISIBLE);
+            adddue.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(getApplicationContext(),adddues.class);
+                    startActivity(intent);
+                }
+            });
+
+        }else
+        {
+            adddue.setVisibility(View.INVISIBLE);
+
+        }
+
+
 
 
     }

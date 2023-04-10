@@ -11,8 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth authi;
     EditText loginemail,lgpass;
-
+    Button loginbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Button forget=findViewById(R.id.forget_password);
         loginemail = findViewById(R.id.editTextTextEmailAddress3);
         lgpass = findViewById(R.id.editTextTextPassword);
-        Button loginbtn= findViewById(R.id.submit);
+        loginbtn = findViewById(R.id.submit);
 
         //user already logged in code
         if (authi.getCurrentUser() != null) {
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
            finish();
        }
         //till here
+
+
 
         loginbtn.setOnClickListener(new  View.OnClickListener() {
             @Override

@@ -38,15 +38,16 @@
             android:fontFamily="@font/muli_black"
             android:includeFontPadding="false"
             android:text="helloe"
+
             android:textSize="22sp" />
 
 
         <LinearLayout
-            android:layout_width="224dp"
-            android:layout_height="125dp"
+            android:layout_width="250dp"
+            android:layout_height="148dp"
             android:layout_centerInParent="true"
             android:layout_toRightOf="@id/profile_image"
-            android:gravity="center"
+            android:gravity="left"
             android:orientation="vertical">
 
 
@@ -56,10 +57,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/fullname"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_toRightOf="@+id/profile_image"
                 android:fontFamily="@font/muli_black"
                 android:includeFontPadding="false"
-                android:text="Pandey Family"
+                android:text="email "
                 android:textSize="15sp" />
 
 
@@ -72,7 +74,7 @@
                 android:layout_toRightOf="@+id/profile_image"
                 android:fontFamily="@font/muli_black"
                 android:includeFontPadding="false"
-                android:text="9823456732"
+                android:text="phone"
                 android:textSize="15sp" />
 
             <TextView
@@ -134,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_account_circle_24"
                 android:drawablePadding="10dp"
-                android:text="Avinash Pandey"></com.google.android.material.textfield.TextInputEditText>
+                android:text=""></com.google.android.material.textfield.TextInputEditText>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -142,7 +144,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Age"
+            android:hint="DOB"
             android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -151,7 +153,10 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/age3"
                 android:drawablePadding="10dp"
-                android:text="20"></com.google.android.material.textfield.TextInputEditText>
+                android:inputType="date"
+                android:text="20">
+
+            </com.google.android.material.textfield.TextInputEditText>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -168,6 +173,7 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/gender2"
                 android:drawablePadding="10dp"
+                android:maxLength="6"
                 android:text="Male"></com.google.android.material.textfield.TextInputEditText>
 
 
@@ -185,7 +191,9 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/phone2"
                 android:drawablePadding="10dp"
-                android:text="9823465987"></com.google.android.material.textfield.TextInputEditText>
+                android:inputType="phone"
+                android:maxLength="10"
+                android:text=""></com.google.android.material.textfield.TextInputEditText>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -202,7 +210,7 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/loca2"
                 android:drawablePadding="10dp"
-                android:text="avinashpandey9049@gmail.com"></com.google.android.material.textfield.TextInputEditText>
+                android:text=""></com.google.android.material.textfield.TextInputEditText>
 
 
         </com.google.android.material.textfield.TextInputLayout>

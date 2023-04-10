@@ -106,12 +106,12 @@ public class SignUp extends AppCompatActivity {
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this,pairs);
         startActivity(intent,options.toBundle());
 
-//        backBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                SignUp.super.onBackPressed();
-//            }
-//        });
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SignUp.super.onBackPressed();
+            }
+        });
     }
 
 
