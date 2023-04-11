@@ -43,9 +43,10 @@ public class login extends AppCompatActivity {
 
                 String email = Username.getText().toString();
                 String password = Password.getText().toString();
-               if(email!="vipulfadte43@gmail.com") {
-                    Username.setError("NOT ADMIN");
-                }
+
+//               if(email!="vipulfadte43@gmail.com") {
+//                    Username.setError("NOT ADMIN");
+//                }
 //change from here
                 if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     if (!password.isEmpty()){

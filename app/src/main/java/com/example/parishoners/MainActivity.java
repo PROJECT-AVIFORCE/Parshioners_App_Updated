@@ -38,8 +38,10 @@ public class MainActivity extends AppCompatActivity {
         lgpass = findViewById(R.id.editTextTextPassword);
         loginbtn = findViewById(R.id.submit);
 
+
+
         //user already logged in code
-        if (authi.getCurrentUser() != null) {
+        if (authi.getCurrentUser()!= null) {
 
           Intent intent = new Intent(MainActivity.this, Dashboard.class);
            startActivity(intent);
