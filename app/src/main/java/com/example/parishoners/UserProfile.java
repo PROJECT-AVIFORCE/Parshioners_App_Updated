@@ -134,7 +134,6 @@ public class UserProfile extends AppCompatActivity {
 
                         auth.signOut();
                         startActivity(new Intent(UserProfile.this, MainActivity.class));
-
                         finish();
 
                     }

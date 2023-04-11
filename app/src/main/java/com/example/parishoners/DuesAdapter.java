@@ -10,7 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class DuesAdapter extends RecyclerView.Adapter<DuesAdapter.MyViewHolder> {
     Context context;
@@ -38,7 +41,24 @@ public class DuesAdapter extends RecyclerView.Adapter<DuesAdapter.MyViewHolder> 
         holder.duetime.setText(duesdataclass.getTime());
         holder.ddate.setText(duesdataclass.getDate());
         holder.due.setText("due date :");
+    FirebaseAuth    auth = FirebaseAuth.getInstance();
+       String  UserID = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
+        if( UserID.equals("kaAwxZeCUDQpB421qKc5ArGfXci2")) {
+            holder.paynow.setVisibility(View.INVISIBLE);
+
+        }
+        else
+        {
+            holder.paynow.setVisibility(View.VISIBLE);
+            holder.paynow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(v.getContext(), payment.class);
+                    v.getContext().startActivity(i);
+                }
+            });
+        }
     }
 
     @Override

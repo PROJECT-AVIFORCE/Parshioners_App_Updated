@@ -225,6 +225,7 @@
                 android:value="" />
         </activity>
         <activity
+            android:parentActivityName=".MainActivity"
             android:name=".MainActivity"
             android:exported="true">
             <meta-data

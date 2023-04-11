@@ -24,7 +24,7 @@ public class login extends AppCompatActivity {
     EditText Username;
     EditText Password;
     FirebaseAuth authi;
-
+String adminemail="vipulfadte43@gmail.com" ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +41,15 @@ public class login extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                String email = Username.getText().toString();
+                String email = Username.getText().toString().trim();
                 String password = Password.getText().toString();
 
-//               if(email!="vipulfadte43@gmail.com") {
-//                    Username.setError("NOT ADMIN");
-//                }
+               if(!email.equals(adminemail)) {
+                    Username.setError("NOT ADMIN");
+                   startActivity(new Intent(login.this ,MainActivity.class));
+                   finish();
+                   Toast.makeText(login.this, "your not an admin", Toast.LENGTH_SHORT).show();
+                }
 //change from here
                 if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     if (!password.isEmpty()){
