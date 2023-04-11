@@ -2,24 +2,17 @@ package com.example.parishoners;
 
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.google.firebase.auth.FirebaseAuth;
-import androidx.annotation.NonNull;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -33,7 +26,6 @@ public class UserProfile extends AppCompatActivity {
     FirebaseFirestore fstore;
     Button logout, updatebtn;
     String UserID;
-    private Dialog dialog;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -113,39 +105,11 @@ String name1  = titlename.getText().toString();
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Create the Dialog here
-                dialog = new Dialog(v.getContext());
-                dialog.show();
-                dialog.setContentView(R.layout.custom_dialog_layout);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_background));
-                }
-                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                dialog.setCancelable(false); //Optional
-                dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation; //Setting the animations to dialog
 
-                Button Yes = dialog.findViewById(R.id.btn_yes);
-                Button No = dialog.findViewById(R.id.btn_no);
+                startActivity(new Intent(UserProfile.this, MainActivity.class));
 
-                Yes.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-
-                        auth.signOut();
-                        startActivity(new Intent(UserProfile.this, MainActivity.class));
-
-                        finish();
-
-                    }
-                });
-                No.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-
+                auth.signOut();
+                finish();
             }
         });
     }
