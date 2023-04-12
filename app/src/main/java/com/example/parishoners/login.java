@@ -3,10 +3,13 @@ package com.example.parishoners;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Patterns;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,15 +24,16 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class login extends AppCompatActivity {
 
+    Button design1;
     EditText Username;
     EditText Password;
     FirebaseAuth authi;
+
 String adminemail="vipulfadte43@gmail.com" ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
 
         Username = findViewById(R.id.editTextTextEmailAddress3);
         Password = findViewById(R.id.pass);
@@ -94,6 +98,7 @@ String adminemail="vipulfadte43@gmail.com" ;
 //                }
 //            }
 //        });
+
 
 
     }

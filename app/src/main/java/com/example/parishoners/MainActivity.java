@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,11 +19,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth authi;
     EditText loginemail,lgpass;
     Button loginbtn;
+    ProgressBar progressBar;
+    int counter =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new  View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 String email =loginemail.getText().toString();
                 String pass =lgpass.getText().toString();
 
@@ -87,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
                     loginemail.setError("please enter valid email");
                 }
             }
-
 
         });
 
