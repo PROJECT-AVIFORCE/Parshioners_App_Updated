@@ -1,17 +1,20 @@
 package com.example.parishoners;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +28,8 @@ import java.util.Objects;
 public class postannouncement extends AppCompatActivity {
 
 
+    //progress dialog
+    ProgressDialog progressDialog;
     RecyclerView announcementview;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef ;
@@ -51,17 +56,19 @@ public class postannouncement extends AppCompatActivity {
         announcementview=(RecyclerView) findViewById(R.id.allannouncements);
         announcementview.setHasFixedSize(true);
         announcementview.setLayoutManager(new LinearLayoutManager(this));
-
+        progressDialog=new ProgressDialog(postannouncement.this);
+        progressDialog.setTitle("Please Wait");
+        progressDialog.setMessage("fetching the announcements");
+        progressDialog.show();
         myRef=database.getReference("Announcements");
         arrayList=new ArrayList<>();
         adapter=new announcementadapter(getApplicationContext(),arrayList);
-        announcementview.setAdapter(adapter);
-
         Eventchangelistener();
-
+        adapter.notifyDataSetChanged();
+        announcementview.setAdapter(adapter);
         post=findViewById(R.id.newannouncementbutton);
-//admin key
-     // String  adminID=;
+        //admin key
+        // String  adminID=
         //admin checker
         auth = FirebaseAuth.getInstance();
         UserID = Objects.requireNonNull(auth.getCurrentUser()).getUid();
@@ -85,17 +92,47 @@ public class postannouncement extends AppCompatActivity {
     }
 
     private void Eventchangelistener() {
+        myRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         myRef.addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                     announcementclass announcementclass=dataSnapshot.getValue(announcementclass.class);
                     arrayList.add(announcementclass);
-                   dataSnapshot.getKey();
-
+                    dataSnapshot.getKey();
                 }
+                progressDialog.dismiss();
                 adapter.notifyDataSetChanged();
             }
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
