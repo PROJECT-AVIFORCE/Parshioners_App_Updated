@@ -1,6 +1,5 @@
 package com.example.parishoners;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -28,8 +27,7 @@ import java.util.Objects;
 public class postannouncement extends AppCompatActivity {
 
 
-    //progress dialog
-    ProgressDialog progressDialog;
+
     RecyclerView announcementview;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef ;
@@ -56,10 +54,6 @@ public class postannouncement extends AppCompatActivity {
         announcementview=(RecyclerView) findViewById(R.id.allannouncements);
         announcementview.setHasFixedSize(true);
         announcementview.setLayoutManager(new LinearLayoutManager(this));
-        progressDialog=new ProgressDialog(postannouncement.this);
-        progressDialog.setTitle("Please Wait");
-        progressDialog.setMessage("fetching the announcements");
-        progressDialog.show();
         myRef=database.getReference("Announcements");
         arrayList=new ArrayList<>();
         adapter=new announcementadapter(getApplicationContext(),arrayList);
@@ -128,7 +122,6 @@ public class postannouncement extends AppCompatActivity {
                     arrayList.add(announcementclass);
                     dataSnapshot.getKey();
                 }
-                progressDialog.dismiss();
                 adapter.notifyDataSetChanged();
             }
 
