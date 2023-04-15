@@ -94,10 +94,11 @@ public class postannouncement extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    progressDialog.dismiss();
-                }
+
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.exists()){
+                        progressDialog.dismiss();
+                    }
                     announcementclass announcementclass=dataSnapshot.getValue(announcementclass.class);
                     arrayList.add(announcementclass);
                    dataSnapshot.getKey();
