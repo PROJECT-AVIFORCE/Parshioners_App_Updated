@@ -1,5 +1,6 @@
 package com.example.parishoners;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,7 @@ import java.util.Objects;
 
 public class postannouncement extends AppCompatActivity {
 
+    ProgressDialog progressDialog;
 
     RecyclerView announcementview;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -40,6 +42,10 @@ public class postannouncement extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_postannouncement);
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setTitle("Please wait ");
+        progressDialog.setMessage("fetching announcements");
+        progressDialog.show();
 
         back=findViewById(R.id.backmenu_icon);
         back.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +66,7 @@ public class postannouncement extends AppCompatActivity {
         Eventchangelistener();
 
         post=findViewById(R.id.newannouncementbutton);
-//admin key
+    //admin key
      // String  adminID=;
         //admin checker
         auth = FirebaseAuth.getInstance();
@@ -88,18 +94,21 @@ public class postannouncement extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    progressDialog.dismiss();
+                }
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                     announcementclass announcementclass=dataSnapshot.getValue(announcementclass.class);
                     arrayList.add(announcementclass);
                    dataSnapshot.getKey();
 
                 }
+
                 adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 
