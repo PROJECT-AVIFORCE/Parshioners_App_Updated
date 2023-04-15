@@ -218,7 +218,9 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/loca2"
                 android:drawablePadding="10dp"
-                android:text=""></com.google.android.material.textfield.TextInputEditText>
+                android:text="">
+
+            </com.google.android.material.textfield.TextInputEditText>
 
 
         </com.google.android.material.textfield.TextInputLayout>
