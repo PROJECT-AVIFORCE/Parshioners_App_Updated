@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,14 +26,19 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class UserProfile extends AppCompatActivity {
     FirebaseAuth auth;
+    ImageView pfp;
     EditText  titlename ,age,gender ,phone ,address;
     TextView Fullname , titleEmail,agetext,gendertext,phonetext,adresstext;
     FirebaseFirestore fstore;
     Button logout, updatebtn;
     String UserID;
+
+    FirebaseStorage storage = FirebaseStorage.getInstance();
     private Dialog dialog;
 
     @SuppressLint("WrongViewCast")
@@ -44,7 +50,7 @@ public class UserProfile extends AppCompatActivity {
         logout =findViewById(R.id.logout);
         updatebtn=findViewById(R.id.update);
         fstore = FirebaseFirestore.getInstance();
-
+        pfp = findViewById(R.id.profile_image);
 
         titlename  =findViewById(R.id.name);
         age = findViewById(R.id.ageid);
@@ -58,8 +64,20 @@ public class UserProfile extends AppCompatActivity {
         phonetext =findViewById(R.id.phone);
         adresstext =findViewById(R.id.adrees);
 
+        // Get a reference to the user's image in Firebase Storage
+        StorageReference storageRef = storage.getReference().child("user_images/");
+
+//profile image
 
 
+        pfp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+Intent i = new Intent(UserProfile.this,reportissue.class);
+startActivity(i);
+
+            }
+        });
 
         //retrive data
 
@@ -149,3 +167,10 @@ public class UserProfile extends AppCompatActivity {
         });
     }
 }
+
+
+
+
+
+
+
