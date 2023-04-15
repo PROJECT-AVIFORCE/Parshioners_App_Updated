@@ -1,35 +1,30 @@
 package com.example.parishoners;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.util.Patterns;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class login extends AppCompatActivity {
 
-    Button design1;
     EditText Username;
     EditText Password;
     FirebaseAuth authi;
+    ProgressDialog dialog;
 
-  String adminemail="vipulfadte43@gmail.com" ;
+String adminemail="vipulfadte43@gmail.com" ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,15 +49,19 @@ public class login extends AppCompatActivity {
                    finish();
                    Toast.makeText(login.this, "your not an admin", Toast.LENGTH_SHORT).show();
                 }
-
-//change from here
-               else if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        //change from here
+                if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     if (!password.isEmpty()){
-
+                        dialog=new ProgressDialog(login.this);
+                        dialog.setTitle("Please Wait");
+                        dialog.setMessage("checking data");
+                        dialog.show();
                         authi.signInWithEmailAndPassword(email,password)
                                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
+                                        dialog.dismiss();
                                         Toast.makeText(login.this,"WELCOME ADMIN",Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(login.this ,Dashboard.class));
                                         finish();
