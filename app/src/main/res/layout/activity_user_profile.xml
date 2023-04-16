@@ -71,7 +71,7 @@
                 android:layout_toRightOf="@+id/profile_image"
                 android:includeFontPadding="false"
                 android:text="email "
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
 
             <TextView

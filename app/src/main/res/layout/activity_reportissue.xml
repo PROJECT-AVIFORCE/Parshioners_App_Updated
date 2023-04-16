@@ -42,16 +42,17 @@
             android:text="What is your issue ?"/>
 
         <EditText
-            android:padding="5dp"
-            android:elevation="10dp"
-            android:background="@drawable/custom_edit_text"
-            android:hint="Describe your issue here"
+            android:id="@+id/gg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/custom_edit_text"
+            android:elevation="10dp"
+            android:hint="Describe your issue here"
             android:inputType="textMultiLine"
             android:lines="8"
             android:maxLines="10"
             android:minLines="6"
+            android:padding="5dp"
             android:scrollbars="vertical" />
 
 

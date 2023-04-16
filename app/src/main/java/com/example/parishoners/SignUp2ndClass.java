@@ -67,7 +67,7 @@ String TAG="TAG";
         });
         next = findViewById(R.id.signup_next_btn);
         logo = findViewById(R.id.logo);
-        login = findViewById(R.id.login);
+
         titletxt = findViewById(R.id.title_text);
         slogan = findViewById(R.id.slogan);
         radio=findViewById(R.id.rg);

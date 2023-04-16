@@ -29,7 +29,7 @@ public class login extends AppCompatActivity {
     EditText Password;
     FirebaseAuth authi;
 
-String adminemail="vipulfadte43@gmail.com" ;
+  String adminemail="vipulfadte43@gmail.com" ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +54,9 @@ String adminemail="vipulfadte43@gmail.com" ;
                    finish();
                    Toast.makeText(login.this, "your not an admin", Toast.LENGTH_SHORT).show();
                 }
+
 //change from here
-                if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+               else if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     if (!password.isEmpty()){
 
                         authi.signInWithEmailAndPassword(email,password)

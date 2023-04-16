@@ -43,6 +43,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.4.5'
+    implementation 'com.google.firebase:firebase-storage:20.1.0'
     testImplementation 'junit:junit:4.13.2'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -55,6 +56,8 @@ dependencies {
     implementation 'com.applandeo:material-calendar-view:1.9.0-rc03'
     //latest dependency for dialog box
     implementation 'com.orhanobut:dialogplus:1.11@aar'
+    implementation 'com.squareup.picasso:picasso:2.8'
+
 
 
 }

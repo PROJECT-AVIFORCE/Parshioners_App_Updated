@@ -25,7 +25,7 @@
             android:orientation="vertical">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
+                android:id="@+id/profileimage"
                 android:layout_width="200dp"
                 android:layout_height="150dp"
                 android:layout_centerVertical="true"
@@ -39,7 +39,7 @@
 
         <Button
             android:id="@+id/update"
-            android:text="Update"
+            android:text="Update1"
             android:textSize="16sp"
             android:fontFamily="@font/muli_black"
             android:layout_width="150dp"
@@ -57,6 +57,13 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:backgroundTint="@color/Davy_Gray"/>
+
+        <Button
+            android:id="@+id/bkbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/update"
+            android:text="Button" />
     </RelativeLayout>
 
         </LinearLayout>
