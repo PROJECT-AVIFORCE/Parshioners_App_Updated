@@ -92,9 +92,9 @@ public class newannouncement extends AppCompatActivity {
                             startActivity(intent);
 
 
+
                         }
                     });
-
 
 
                 }
