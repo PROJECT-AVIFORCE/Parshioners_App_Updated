@@ -11,6 +11,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.regex.Pattern;
 
 public class ForgetPassword extends AppCompatActivity {
+    ImageView back;
 
     FirebaseAuth auth;
     private EditText email;
@@ -31,6 +33,13 @@ public class ForgetPassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password);
+        back=findViewById(R.id.goback);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         auth =FirebaseAuth.getInstance();
         email = findViewById(R.id.forgotemail);

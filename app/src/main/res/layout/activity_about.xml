@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".about"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/logo"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/buttonback"
+            android:contentDescription="back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+            android:background="#00FFFFFF"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"/>
+
+        <ImageView
+            android:layout_marginTop="40dp"
+            android:id="@+id/p_logo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/marthoma_logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="St Thomas Mar Thoma Syrian Church, Panaji-Goa"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:fontFamily="@font/muli_black"
+            android:textAllCaps="true"
+            android:textSize="22sp"
+            android:gravity="center"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="461dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/amiko_semibold"
+                android:textAlignment="center"
+                android:text="Contact"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/amiko_semibold"
+                android:textAlignment="center"
+                android:text="sttparishnors@gmail.com"
+                android:textColor="@color/white"
+                android:layout_marginLeft="15dp"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/amiko_semibold"
+                android:textAlignment="center"
+                android:text="+910987654321"
+                android:textColor="@color/white"
+                android:layout_marginLeft="15dp"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/amiko_semibold"
+                android:textAlignment="center"
+                android:text="Address"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/amiko_semibold"
+                android:textColor="@color/white"
+                android:text="605, RATAN ICON BUILDING SEAWOODS SECTOR, GOA"
+                android:layout_marginLeft="15dp"
+                android:textSize="18sp"/>
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.parishoners;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -89,7 +90,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         //Navigation Drawer
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.gallery);
+
 
         menuIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,15 +108,23 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                         Intent i=new Intent(getApplicationContext(),donations.class);
                         startActivity(i);
                         break;
+
+                    case R.id.contact:
+                        Intent inten=new Intent(getApplicationContext(),about.class);
+                        startActivity(inten);
+                        break;
+
+                    case R.id.about:
+                        Intent intt=new Intent(Intent.ACTION_VIEW, Uri.parse("https://backendlogsign.web.app"));
+                        startActivity(intt);
+                        break;
+
                     case R.id.report:
                         Intent intent=new Intent(getApplicationContext(),reportissue.class);
                         startActivity(intent);
                         break;
-                    case R.id.logout:
-                        Intent in=new Intent(getApplicationContext(),MainActivity.class);
-                        startActivity(in);
-                        finish();
-                        break;
+
+
                 }
 
 

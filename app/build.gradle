@@ -56,6 +56,7 @@ dependencies {
     implementation 'com.applandeo:material-calendar-view:1.9.0-rc03'
     //latest dependency for dialog box
     implementation 'com.orhanobut:dialogplus:1.11@aar'
+
     implementation 'com.squareup.picasso:picasso:2.8'
 
 

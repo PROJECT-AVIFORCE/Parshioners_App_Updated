@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -30,6 +31,7 @@ import com.google.firebase.storage.FirebaseStorage;
 
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 
 import java.io.IOException;
@@ -39,6 +41,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class profile_pic extends AppCompatActivity {
+
 
         // views for button
         Button btnSelect, btnUpload ;
@@ -96,6 +99,7 @@ public class profile_pic extends AppCompatActivity {
                 @Override
                 public void onClick(View v)
                 {
+
                     uploadImage();
                 }
             });
@@ -104,8 +108,6 @@ public class profile_pic extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-Intent i = new Intent(profile_pic.this,UserProfile.class);
-startActivity(i);
 finish();
                 }
             });
@@ -172,6 +174,11 @@ finish();
     // UploadImage method
     private void uploadImage()
     {
+        ProgressDialog dialog=new ProgressDialog(profile_pic.this);
+        dialog.setTitle("Please wait");
+        dialog.setMessage("updating image");
+        dialog.show();
+
         if (filePath != null) {
             // Defining the child of storageReference
             StorageReference ref
@@ -189,14 +196,20 @@ finish();
                                 public void onSuccess(
                                         UploadTask.TaskSnapshot taskSnapshot)
                                 {
-
+                                    dialog.dismiss();
                                     // Image uploaded successfully
+
                                     Toast
                                             .makeText(profile_pic.this,
                                                     "Image Uploaded!!",
                                                     Toast.LENGTH_SHORT)
                                             .show();
-                                    Intent i = new Intent(profile_pic.this,UserProfile.class);
+                                    Toast
+                                            .makeText(profile_pic.this,
+                                                    "please restart the app to view updated picture",
+                                                    Toast.LENGTH_SHORT)
+                                            .show();
+                                    Intent i = new Intent(profile_pic.this , UserProfile.class);
                                     startActivity(i);
                                     finish();
 
@@ -219,6 +232,7 @@ finish();
         }
         else{
 
+            dialog.dismiss();
             Toast.makeText(this, "Click on image to set", Toast.LENGTH_SHORT).show();
         }
     }

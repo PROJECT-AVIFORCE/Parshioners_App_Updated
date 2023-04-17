@@ -39,13 +39,13 @@
 
         <Button
             android:id="@+id/update"
-            android:text="Update1"
-            android:textSize="16sp"
-            android:fontFamily="@font/muli_black"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:backgroundTint="@color/navy_blue"/>
+            android:backgroundTint="@color/navy_blue"
+            android:fontFamily="@font/muli_black"
+            android:text="Update"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/close"
