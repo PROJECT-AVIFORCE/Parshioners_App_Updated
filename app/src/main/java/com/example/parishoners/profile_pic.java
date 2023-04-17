@@ -204,11 +204,7 @@ finish();
                                                     "Image Uploaded!!",
                                                     Toast.LENGTH_SHORT)
                                             .show();
-                                    Toast
-                                            .makeText(profile_pic.this,
-                                                    "please restart the app to view updated picture",
-                                                    Toast.LENGTH_SHORT)
-                                            .show();
+
                                     Intent i = new Intent(profile_pic.this , UserProfile.class);
                                     startActivity(i);
                                     finish();

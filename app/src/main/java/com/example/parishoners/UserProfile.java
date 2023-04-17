@@ -4,6 +4,9 @@ package com.example.parishoners;
 
 import android.app.Dialog;
 import android.content.Intent;
+
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import android.net.Uri;
@@ -102,7 +105,11 @@ public class UserProfile extends AppCompatActivity {
 //image
 
                 filePath =Uri.parse("https://firebasestorage.googleapis.com/v0/b/backendlogsign.appspot.com/o/"+UserID+"?alt=media&token=a256ed91-52a1-4f61-b9dd-d917d046a19a");
-                Picasso.get().load(filePath).into(pfp);
+                Picasso.get()
+                        .load(filePath)
+                        .memoryPolicy(MemoryPolicy.NO_CACHE)
+                        .networkPolicy(NetworkPolicy.NO_CACHE)
+                        .into(pfp);
 
 //            profile card
                 Fullname.setText(value.getString("name"));
