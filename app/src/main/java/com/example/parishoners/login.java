@@ -50,7 +50,7 @@ String adminemail="vipulfadte43@gmail.com" ;
                    Toast.makeText(login.this, "your not an admin", Toast.LENGTH_SHORT).show();
                 }
         //change from here
-                if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                else if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     if (!password.isEmpty()){
                         dialog=new ProgressDialog(login.this);
                         dialog.setTitle("Please Wait");
@@ -70,6 +70,7 @@ String adminemail="vipulfadte43@gmail.com" ;
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
+                                        dialog.dismiss();
                                         Toast.makeText(login.this, "Incorrect Email or Password.Please Try Again.", Toast.LENGTH_SHORT).show();
                                     }
                                 });

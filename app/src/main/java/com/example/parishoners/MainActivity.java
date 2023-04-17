@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
+                                        dialog.dismiss();
                                         Toast.makeText(MainActivity.this, "Incorrect Email or Password.Please Try Again.", Toast.LENGTH_SHORT).show();
                                     }
                                 });
